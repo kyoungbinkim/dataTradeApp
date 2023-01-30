@@ -1,0 +1,12 @@
+module CSnark {
+    header "../../Headers/Bridging-Header.h"
+    link "Snark"
+    link "gmp"
+    link "gmpxx"
+    link "ssl"
+    link "crypto"
+    link "omp"
+    link "c++"
+    export *
+}
+
