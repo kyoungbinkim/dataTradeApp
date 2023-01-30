@@ -19,6 +19,9 @@
 		3BE3666129882C2D00A702E3 /* libomp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666029882C1E00A702E3 /* libomp.a */; };
 		3BE3666329882C3F00A702E3 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666229882C3700A702E3 /* libssl.a */; };
 		3BE3666529882C6C00A702E3 /* libSnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666429882C6100A702E3 /* libSnark.a */; };
+		3BE3666929882DA700A702E3 /* LibsnarkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3666829882DA700A702E3 /* LibsnarkModule.swift */; };
+		3BE3666C29882DD200A702E3 /* LibsnarkModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3666A29882DD200A702E3 /* LibsnarkModule.m */; };
+		3BE3666F29882E4500A702E3 /* crs in Resources */ = {isa = PBXBuildFile; fileRef = 3BE3666E29882E4500A702E3 /* crs */; };
 		7699B88040F8A987B510C191 /* libPods-dataTradeApp-dataTradeAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -52,6 +55,11 @@
 		3BE3666029882C1E00A702E3 /* libomp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libomp.a; path = native_libs/iphoneos_depend_libs/libomp.a; sourceTree = "<group>"; };
 		3BE3666229882C3700A702E3 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = native_libs/iphoneos_depend_libs/libssl.a; sourceTree = "<group>"; };
 		3BE3666429882C6100A702E3 /* libSnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSnark.a; path = native_libs/iphoneos_release/libSnark.a; sourceTree = "<group>"; };
+		3BE3666829882DA700A702E3 /* LibsnarkModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibsnarkModule.swift; sourceTree = "<group>"; };
+		3BE3666A29882DD200A702E3 /* LibsnarkModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibsnarkModule.m; sourceTree = "<group>"; };
+		3BE3666B29882DD200A702E3 /* LibsnarkModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibsnarkModule.h; sourceTree = "<group>"; };
+		3BE3666D29882E1000A702E3 /* dataTradeApp-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dataTradeApp-bridging-header.h"; sourceTree = "<group>"; };
+		3BE3666E29882E4500A702E3 /* crs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = crs; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-dataTradeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dataTradeApp.release.xcconfig"; path = "Target Support Files/Pods-dataTradeApp/Pods-dataTradeApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-dataTradeApp-dataTradeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dataTradeApp-dataTradeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-dataTradeApp-dataTradeAppTests/Pods-dataTradeApp-dataTradeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-dataTradeApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dataTradeApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,12 +115,16 @@
 		13B07FAE1A68108700A75B9A /* dataTradeApp */ = {
 			isa = PBXGroup;
 			children = (
+				3BE3666B29882DD200A702E3 /* LibsnarkModule.h */,
+				3BE3666A29882DD200A702E3 /* LibsnarkModule.m */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				3BE3666829882DA700A702E3 /* LibsnarkModule.swift */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				3BE3666D29882E1000A702E3 /* dataTradeApp-bridging-header.h */,
 			);
 			name = dataTradeApp;
 			sourceTree = "<group>";
@@ -125,13 +137,20 @@
 				3BE3666029882C1E00A702E3 /* libomp.a */,
 				3BE3665E29882BFD00A702E3 /* libgmpxx.a */,
 				3BE3665929882ADA00A702E3 /* libgmp.a */,
-				3BE3665829882AA500A702E3 /* libsnark_module */,
 				3BE3665729882A9900A702E3 /* libcrypto.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-dataTradeApp.a */,
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3BE3666629882D3A00A702E3 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				3BE3665829882AA500A702E3 /* libsnark_module */,
+			);
+			path = Packages;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -144,6 +163,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				3BE3666E29882E4500A702E3 /* crs */,
+				3BE3666629882D3A00A702E3 /* Packages */,
 				13B07FAE1A68108700A75B9A /* dataTradeApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* dataTradeAppTests */,
@@ -273,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE3666F29882E4500A702E3 /* crs in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -443,8 +465,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE3666929882DA700A702E3 /* LibsnarkModule.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				3BE3666C29882DD200A702E3 /* LibsnarkModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +487,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-dataTradeApp-dataTradeAppTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -490,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-dataTradeApp-dataTradeAppTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = dataTradeAppTests/Info.plist;
