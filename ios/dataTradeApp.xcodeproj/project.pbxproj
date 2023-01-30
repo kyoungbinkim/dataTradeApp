@@ -12,6 +12,13 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		3BE3665B29882BD300A702E3 /* zkSnark in Frameworks */ = {isa = PBXBuildFile; productRef = 3BE3665A29882BD300A702E3 /* zkSnark */; };
+		3BE3665C29882BDE00A702E3 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3665729882A9900A702E3 /* libcrypto.a */; };
+		3BE3665D29882BED00A702E3 /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3665929882ADA00A702E3 /* libgmp.a */; };
+		3BE3665F29882C0D00A702E3 /* libgmpxx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3665E29882BFD00A702E3 /* libgmpxx.a */; };
+		3BE3666129882C2D00A702E3 /* libomp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666029882C1E00A702E3 /* libomp.a */; };
+		3BE3666329882C3F00A702E3 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666229882C3700A702E3 /* libssl.a */; };
+		3BE3666529882C6C00A702E3 /* libSnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666429882C6100A702E3 /* libSnark.a */; };
 		7699B88040F8A987B510C191 /* libPods-dataTradeApp-dataTradeAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -38,6 +45,13 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = dataTradeApp/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dataTradeApp-dataTradeAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-dataTradeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dataTradeApp.debug.xcconfig"; path = "Target Support Files/Pods-dataTradeApp/Pods-dataTradeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		3BE3665729882A9900A702E3 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = native_libs/iphoneos_depend_libs/libcrypto.a; sourceTree = "<group>"; };
+		3BE3665829882AA500A702E3 /* libsnark_module */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = libsnark_module; sourceTree = "<group>"; };
+		3BE3665929882ADA00A702E3 /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmp.a; path = native_libs/iphoneos_depend_libs/libgmp.a; sourceTree = "<group>"; };
+		3BE3665E29882BFD00A702E3 /* libgmpxx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmpxx.a; path = native_libs/iphoneos_depend_libs/libgmpxx.a; sourceTree = "<group>"; };
+		3BE3666029882C1E00A702E3 /* libomp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libomp.a; path = native_libs/iphoneos_depend_libs/libomp.a; sourceTree = "<group>"; };
+		3BE3666229882C3700A702E3 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = native_libs/iphoneos_depend_libs/libssl.a; sourceTree = "<group>"; };
+		3BE3666429882C6100A702E3 /* libSnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSnark.a; path = native_libs/iphoneos_release/libSnark.a; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-dataTradeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dataTradeApp.release.xcconfig"; path = "Target Support Files/Pods-dataTradeApp/Pods-dataTradeApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-dataTradeApp-dataTradeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dataTradeApp-dataTradeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-dataTradeApp-dataTradeAppTests/Pods-dataTradeApp-dataTradeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-dataTradeApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dataTradeApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +74,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C80B921A6F3F58F76C31292 /* libPods-dataTradeApp.a in Frameworks */,
+				3BE3665F29882C0D00A702E3 /* libgmpxx.a in Frameworks */,
+				3BE3666329882C3F00A702E3 /* libssl.a in Frameworks */,
+				3BE3665B29882BD300A702E3 /* zkSnark in Frameworks */,
+				3BE3665D29882BED00A702E3 /* libgmp.a in Frameworks */,
+				3BE3666129882C2D00A702E3 /* libomp.a in Frameworks */,
+				3BE3665C29882BDE00A702E3 /* libcrypto.a in Frameworks */,
+				3BE3666529882C6C00A702E3 /* libSnark.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +120,13 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3BE3666429882C6100A702E3 /* libSnark.a */,
+				3BE3666229882C3700A702E3 /* libssl.a */,
+				3BE3666029882C1E00A702E3 /* libomp.a */,
+				3BE3665E29882BFD00A702E3 /* libgmpxx.a */,
+				3BE3665929882ADA00A702E3 /* libgmp.a */,
+				3BE3665829882AA500A702E3 /* libsnark_module */,
+				3BE3665729882A9900A702E3 /* libcrypto.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-dataTradeApp.a */,
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */,
@@ -190,6 +218,9 @@
 			dependencies = (
 			);
 			name = dataTradeApp;
+			packageProductDependencies = (
+				3BE3665A29882BD300A702E3 /* zkSnark */,
+			);
 			productName = dataTradeApp;
 			productReference = 13B07F961A680F5B00A75B9A /* dataTradeApp.app */;
 			productType = "com.apple.product-type.application";
@@ -492,6 +523,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/native_libs/iphoneos_depend_libs",
+					"$(PROJECT_DIR)/native_libs/iphoneos_release",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -516,6 +552,11 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/native_libs/iphoneos_depend_libs",
+					"$(PROJECT_DIR)/native_libs/iphoneos_release",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -697,6 +738,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3BE3665A29882BD300A702E3 /* zkSnark */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = zkSnark;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
 }
