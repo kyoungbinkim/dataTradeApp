@@ -12,19 +12,19 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		3BB244AC2988E6F900EFD587 /* libSnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666429882C6100A702E3 /* libSnark.a */; };
+		3BB244AD2988E6FF00EFD587 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666229882C3700A702E3 /* libssl.a */; };
+		3BB244AE2988E70200EFD587 /* libgmpxx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3665E29882BFD00A702E3 /* libgmpxx.a */; };
+		3BB244AF2988E70500EFD587 /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3665929882ADA00A702E3 /* libgmp.a */; };
+		3BB244B02988E70700EFD587 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3665729882A9900A702E3 /* libcrypto.a */; };
+		3BB244B52988E9E200EFD587 /* libomp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB244B22988E7B300EFD587 /* libomp.a */; };
+		3BB244B72988E9EA00EFD587 /* libomp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666029882C1E00A702E3 /* libomp.a */; };
+		3BB244B82988EC9900EFD587 /* libPods-dataTradeApp-dataTradeAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */; };
 		3BE3665B29882BD300A702E3 /* zkSnark in Frameworks */ = {isa = PBXBuildFile; productRef = 3BE3665A29882BD300A702E3 /* zkSnark */; };
-		3BE3665C29882BDE00A702E3 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3665729882A9900A702E3 /* libcrypto.a */; };
-		3BE3665D29882BED00A702E3 /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3665929882ADA00A702E3 /* libgmp.a */; };
-		3BE3665F29882C0D00A702E3 /* libgmpxx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3665E29882BFD00A702E3 /* libgmpxx.a */; };
-		3BE3666129882C2D00A702E3 /* libomp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666029882C1E00A702E3 /* libomp.a */; };
-		3BE3666329882C3F00A702E3 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666229882C3700A702E3 /* libssl.a */; };
-		3BE3666529882C6C00A702E3 /* libSnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666429882C6100A702E3 /* libSnark.a */; };
 		3BE3666929882DA700A702E3 /* LibsnarkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3666829882DA700A702E3 /* LibsnarkModule.swift */; };
 		3BE3666C29882DD200A702E3 /* LibsnarkModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3666A29882DD200A702E3 /* LibsnarkModule.m */; };
-		3BE3666F29882E4500A702E3 /* crs in Resources */ = {isa = PBXBuildFile; fileRef = 3BE3666E29882E4500A702E3 /* crs */; };
 		3BE36671298844C500A702E3 /* dataTradeApp.app in Resources */ = {isa = PBXBuildFile; fileRef = 13B07F961A680F5B00A75B9A /* dataTradeApp.app */; };
 		3BE366742988AF0D00A702E3 /* LibsnarkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3666829882DA700A702E3 /* LibsnarkModule.swift */; };
-		7699B88040F8A987B510C191 /* libPods-dataTradeApp-dataTradeAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +51,14 @@
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dataTradeApp-dataTradeAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-dataTradeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dataTradeApp.debug.xcconfig"; path = "Target Support Files/Pods-dataTradeApp/Pods-dataTradeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		3BB244932988CC3300EFD587 /* LibsnarkModule-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LibsnarkModule-Bridging-Header.h"; sourceTree = "<group>"; };
+		3BB244942988E48200EFD587 /* libSnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSnark.a; path = native_libs/iphonesimulator_release/libSnark.a; sourceTree = "<group>"; };
+		3BB244962988E4A000EFD587 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = native_libs/iphonesimulator_depend_libs/libssl.a; sourceTree = "<group>"; };
+		3BB244972988E4A000EFD587 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = native_libs/iphonesimulator_depend_libs/libcrypto.a; sourceTree = "<group>"; };
+		3BB244982988E4A100EFD587 /* libgmpxx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmpxx.a; path = native_libs/iphonesimulator_depend_libs/libgmpxx.a; sourceTree = "<group>"; };
+		3BB244992988E4A100EFD587 /* libomp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libomp.a; path = native_libs/iphonesimulator_depend_libs/libomp.a; sourceTree = "<group>"; };
+		3BB2449A2988E4A100EFD587 /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmp.a; path = native_libs/iphonesimulator_depend_libs/libgmp.a; sourceTree = "<group>"; };
+		3BB244A82988E64E00EFD587 /* iphoneos_depend_libs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iphoneos_depend_libs; path = native_libs/iphoneos_depend_libs; sourceTree = "<group>"; };
+		3BB244B22988E7B300EFD587 /* libomp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libomp.a; path = ../../workspace/azerothFront/ios/native_libs/iphoneos_depend_libs/libomp.a; sourceTree = "<group>"; };
 		3BE3665729882A9900A702E3 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = native_libs/iphoneos_depend_libs/libcrypto.a; sourceTree = "<group>"; };
 		3BE3665829882AA500A702E3 /* libsnark_module */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = libsnark_module; sourceTree = "<group>"; };
 		3BE3665929882ADA00A702E3 /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmp.a; path = native_libs/iphoneos_depend_libs/libgmp.a; sourceTree = "<group>"; };
@@ -76,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-dataTradeApp-dataTradeAppTests.a in Frameworks */,
+				3BB244B82988EC9900EFD587 /* libPods-dataTradeApp-dataTradeAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,14 +92,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BB244AE2988E70200EFD587 /* libgmpxx.a in Frameworks */,
+				3BB244B72988E9EA00EFD587 /* libomp.a in Frameworks */,
+				3BB244AF2988E70500EFD587 /* libgmp.a in Frameworks */,
+				3BB244B52988E9E200EFD587 /* libomp.a in Frameworks */,
+				3BB244B02988E70700EFD587 /* libcrypto.a in Frameworks */,
+				3BB244AD2988E6FF00EFD587 /* libssl.a in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-dataTradeApp.a in Frameworks */,
-				3BE3665F29882C0D00A702E3 /* libgmpxx.a in Frameworks */,
-				3BE3666329882C3F00A702E3 /* libssl.a in Frameworks */,
 				3BE3665B29882BD300A702E3 /* zkSnark in Frameworks */,
-				3BE3665D29882BED00A702E3 /* libgmp.a in Frameworks */,
-				3BE3666129882C2D00A702E3 /* libomp.a in Frameworks */,
-				3BE3665C29882BDE00A702E3 /* libcrypto.a in Frameworks */,
-				3BE3666529882C6C00A702E3 /* libSnark.a in Frameworks */,
+				3BB244AC2988E6F900EFD587 /* libSnark.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +145,14 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3BB244B22988E7B300EFD587 /* libomp.a */,
+				3BB244A82988E64E00EFD587 /* iphoneos_depend_libs */,
+				3BB244972988E4A000EFD587 /* libcrypto.a */,
+				3BB2449A2988E4A100EFD587 /* libgmp.a */,
+				3BB244982988E4A100EFD587 /* libgmpxx.a */,
+				3BB244992988E4A100EFD587 /* libomp.a */,
+				3BB244942988E48200EFD587 /* libSnark.a */,
+				3BB244962988E4A000EFD587 /* libssl.a */,
 				3BE3666429882C6100A702E3 /* libSnark.a */,
 				3BE3666229882C3700A702E3 /* libssl.a */,
 				3BE3666029882C1E00A702E3 /* libomp.a */,
@@ -298,7 +315,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BE3666F29882E4500A702E3 /* crs in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				3BE36671298844C500A702E3 /* dataTradeApp.app in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
@@ -549,6 +565,57 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZBVL64FX4F;
 				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/BVLinearGradient\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/FBLazyVector\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-Fmt\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-Folly\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-PeerTalk\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-RSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/FlipperKit\"",
+					"\"${PODS_ROOT}/Headers/Public/RCT-Folly\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTRequired\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTTypeSafety\"",
+					"\"${PODS_ROOT}/Headers/Public/RNCClipboard\"",
+					"\"${PODS_ROOT}/Headers/Public/RNGestureHandler\"",
+					"\"${PODS_ROOT}/Headers/Public/RNScreens\"",
+					"\"${PODS_ROOT}/Headers/Public/RNVectorIcons\"",
+					"\"${PODS_ROOT}/Headers/Public/React-Codegen\"",
+					"\"${PODS_ROOT}/Headers/Public/React-Core\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTAnimation\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTBlob\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTText\"",
+					"\"${PODS_ROOT}/Headers/Public/React-bridging\"",
+					"\"${PODS_ROOT}/Headers/Public/React-callinvoker\"",
+					"\"${PODS_ROOT}/Headers/Public/React-cxxreact\"",
+					"\"${PODS_ROOT}/Headers/Public/React-hermes\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsi\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsiexecutor\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsinspector\"",
+					"\"${PODS_ROOT}/Headers/Public/React-logger\"",
+					"\"${PODS_ROOT}/Headers/Public/React-perflogger\"",
+					"\"${PODS_ROOT}/Headers/Public/React-runtimeexecutor\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactCommon\"",
+					"\"${PODS_ROOT}/Headers/Public/SocketRocket\"",
+					"\"${PODS_ROOT}/Headers/Public/Yoga\"",
+					"\"${PODS_ROOT}/Headers/Public/YogaKit\"",
+					"\"${PODS_ROOT}/Headers/Public/fmt\"",
+					"\"${PODS_ROOT}/Headers/Public/glog\"",
+					"\"${PODS_ROOT}/Headers/Public/hermes-engine\"",
+					"\"${PODS_ROOT}/Headers/Public/libevent\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-get-random-values\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-safe-area-context\"",
+					"\"$(PODS_ROOT)/DoubleConversion\"",
+					"\"$(PODS_ROOT)/boost\"",
+					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
+					"\"$(PODS_TARGET_SRCROOT)/include/\"",
+					"\"${PODS_ROOT}/Headers/Public/React\"/**",
+				);
 				INFOPLIST_FILE = dataTradeApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = dataTradeApp;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -561,6 +628,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/native_libs/iphoneos_depend_libs",
 					"$(PROJECT_DIR)/native_libs/iphoneos_release",
+					"$(PROJECT_DIR)/native_libs/iphonesimulator_release",
+					"$(PROJECT_DIR)/native_libs/iphonesimulator_depend_libs",
 				);
 				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
@@ -570,6 +639,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.dataTradeApp.Debug;
 				PRODUCT_NAME = dataTradeApp;
+				SDKROOT = iphoneos;
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "dataTradeApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -584,6 +655,57 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZBVL64FX4F;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/BVLinearGradient\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/FBLazyVector\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-Fmt\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-Folly\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-PeerTalk\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-RSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/FlipperKit\"",
+					"\"${PODS_ROOT}/Headers/Public/RCT-Folly\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTRequired\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTTypeSafety\"",
+					"\"${PODS_ROOT}/Headers/Public/RNCClipboard\"",
+					"\"${PODS_ROOT}/Headers/Public/RNGestureHandler\"",
+					"\"${PODS_ROOT}/Headers/Public/RNScreens\"",
+					"\"${PODS_ROOT}/Headers/Public/RNVectorIcons\"",
+					"\"${PODS_ROOT}/Headers/Public/React-Codegen\"",
+					"\"${PODS_ROOT}/Headers/Public/React-Core\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTAnimation\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTBlob\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTText\"",
+					"\"${PODS_ROOT}/Headers/Public/React-bridging\"",
+					"\"${PODS_ROOT}/Headers/Public/React-callinvoker\"",
+					"\"${PODS_ROOT}/Headers/Public/React-cxxreact\"",
+					"\"${PODS_ROOT}/Headers/Public/React-hermes\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsi\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsiexecutor\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsinspector\"",
+					"\"${PODS_ROOT}/Headers/Public/React-logger\"",
+					"\"${PODS_ROOT}/Headers/Public/React-perflogger\"",
+					"\"${PODS_ROOT}/Headers/Public/React-runtimeexecutor\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactCommon\"",
+					"\"${PODS_ROOT}/Headers/Public/SocketRocket\"",
+					"\"${PODS_ROOT}/Headers/Public/Yoga\"",
+					"\"${PODS_ROOT}/Headers/Public/YogaKit\"",
+					"\"${PODS_ROOT}/Headers/Public/fmt\"",
+					"\"${PODS_ROOT}/Headers/Public/glog\"",
+					"\"${PODS_ROOT}/Headers/Public/hermes-engine\"",
+					"\"${PODS_ROOT}/Headers/Public/libevent\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-get-random-values\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-safe-area-context\"",
+					"\"$(PODS_ROOT)/DoubleConversion\"",
+					"\"$(PODS_ROOT)/boost\"",
+					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
+					"\"$(PODS_TARGET_SRCROOT)/include/\"",
+					"\"${PODS_ROOT}/Headers/Public/React\"/**",
+				);
 				INFOPLIST_FILE = dataTradeApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = dataTradeApp;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -596,6 +718,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/native_libs/iphoneos_depend_libs",
 					"$(PROJECT_DIR)/native_libs/iphoneos_release",
+					"$(PROJECT_DIR)/native_libs/iphonesimulator_release",
+					"$(PROJECT_DIR)/native_libs/iphonesimulator_depend_libs",
 				);
 				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
@@ -605,6 +729,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.dataTadeApp;
 				PRODUCT_NAME = dataTradeApp;
+				SDKROOT = iphoneos;
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "dataTradeApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -644,6 +770,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=*]" = i386;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -717,6 +844,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=*]" = i386;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
