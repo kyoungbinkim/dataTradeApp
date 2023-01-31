@@ -1,5 +1,7 @@
 //
-//  Use this file to import your target's public headers that you would like to expose to Swift.
+//  LibsnarkModule.h
+//  dataTradeApp
 //
-
+//  Created by 김경빈 on 2023/01/31.
+//
 #import <React/RCTBridgeModule.h>
