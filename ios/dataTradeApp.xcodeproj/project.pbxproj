@@ -12,7 +12,6 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		3BB244AC2988E6F900EFD587 /* libSnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666429882C6100A702E3 /* libSnark.a */; };
 		3BB244AD2988E6FF00EFD587 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666229882C3700A702E3 /* libssl.a */; };
 		3BB244AE2988E70200EFD587 /* libgmpxx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3665E29882BFD00A702E3 /* libgmpxx.a */; };
 		3BB244AF2988E70500EFD587 /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3665929882ADA00A702E3 /* libgmp.a */; };
@@ -21,6 +20,9 @@
 		3BB244B72988E9EA00EFD587 /* libomp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE3666029882C1E00A702E3 /* libomp.a */; };
 		3BB244B82988EC9900EFD587 /* libPods-dataTradeApp-dataTradeAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */; };
 		3BB244BA2988EED800EFD587 /* zkSnark in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB244B92988EED800EFD587 /* zkSnark */; };
+		3BC88AAE298B59C00097527D /* LibsnarkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3666829882DA700A702E3 /* LibsnarkModule.swift */; };
+		3BC88AB6298B70E00097527D /* libReact-RCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC88AB5298B70E00097527D /* libReact-RCTBlob.a */; };
+		3BC88AB8298B71EE0097527D /* libSnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB244942988E48200EFD587 /* libSnark.a */; };
 		3BE3666929882DA700A702E3 /* LibsnarkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3666829882DA700A702E3 /* LibsnarkModule.swift */; };
 		3BE3666C29882DD200A702E3 /* LibsnarkModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3666A29882DD200A702E3 /* LibsnarkModule.m */; };
 		3BE36671298844C500A702E3 /* dataTradeApp.app in Resources */ = {isa = PBXBuildFile; fileRef = 13B07F961A680F5B00A75B9A /* dataTradeApp.app */; };
@@ -58,6 +60,8 @@
 		3BB2449A2988E4A100EFD587 /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmp.a; path = native_libs/iphonesimulator_depend_libs/libgmp.a; sourceTree = "<group>"; };
 		3BB244A82988E64E00EFD587 /* iphoneos_depend_libs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iphoneos_depend_libs; path = native_libs/iphoneos_depend_libs; sourceTree = "<group>"; };
 		3BB244B22988E7B300EFD587 /* libomp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libomp.a; path = ../../workspace/azerothFront/ios/native_libs/iphoneos_depend_libs/libomp.a; sourceTree = "<group>"; };
+		3BC88AB1298B6FF20097527D /* libSnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSnark.a; path = ../../workspace/azerothFront/ios/native_libs/iphonesimulator_release/libSnark.a; sourceTree = "<group>"; };
+		3BC88AB5298B70E00097527D /* libReact-RCTBlob.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTBlob.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE3665729882A9900A702E3 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = native_libs/iphoneos_depend_libs/libcrypto.a; sourceTree = "<group>"; };
 		3BE3665829882AA500A702E3 /* libsnark_module */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = libsnark_module; sourceTree = "<group>"; };
 		3BE3665929882ADA00A702E3 /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmp.a; path = native_libs/iphoneos_depend_libs/libgmp.a; sourceTree = "<group>"; };
@@ -92,14 +96,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BB244BA2988EED800EFD587 /* zkSnark in Frameworks */,
+				3BC88AB8298B71EE0097527D /* libSnark.a in Frameworks */,
 				3BB244AE2988E70200EFD587 /* libgmpxx.a in Frameworks */,
 				3BB244B72988E9EA00EFD587 /* libomp.a in Frameworks */,
 				3BB244AF2988E70500EFD587 /* libgmp.a in Frameworks */,
+				3BC88AB6298B70E00097527D /* libReact-RCTBlob.a in Frameworks */,
 				3BB244B52988E9E200EFD587 /* libomp.a in Frameworks */,
 				3BB244B02988E70700EFD587 /* libcrypto.a in Frameworks */,
 				3BB244AD2988E6FF00EFD587 /* libssl.a in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-dataTradeApp.a in Frameworks */,
-				3BB244AC2988E6F900EFD587 /* libSnark.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +149,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3BC88AB5298B70E00097527D /* libReact-RCTBlob.a */,
+				3BC88AB1298B6FF20097527D /* libSnark.a */,
 				3BB244B22988E7B300EFD587 /* libomp.a */,
 				3BB244A82988E64E00EFD587 /* iphoneos_depend_libs */,
 				3BB244972988E4A000EFD587 /* libcrypto.a */,
@@ -476,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* dataTradeAppTests.m in Sources */,
+				3BC88AAE298B59C00097527D /* LibsnarkModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,8 +493,8 @@
 			files = (
 				3BE3666929882DA700A702E3 /* LibsnarkModule.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
-				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				3BE3666C29882DD200A702E3 /* LibsnarkModule.m in Sources */,
+				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,8 +571,7 @@
 				CURRENT_PROJECT_VERSION = 230104000;
 				DEVELOPMENT_TEAM = ZBVL64FX4F;
 				ENABLE_BITCODE = NO;
-				"EXCLUDED_ARCHS[sdk=*]" = "";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -618,7 +625,7 @@
 				);
 				INFOPLIST_FILE = dataTradeApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = dataTradeApp;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -637,6 +644,13 @@
 					"-ObjC",
 					"-lc++",
 				);
+				"OTHER_LDFLAGS[arch=*]" = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+					"-I\"Snark\"",
+				);
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.dataTradeApp.Debug;
 				PRODUCT_NAME = dataTradeApp;
 				SDKROOT = iphoneos;
@@ -655,8 +669,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 230104000;
 				DEVELOPMENT_TEAM = ZBVL64FX4F;
-				"EXCLUDED_ARCHS[sdk=*]" = "";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -710,7 +723,7 @@
 				);
 				INFOPLIST_FILE = dataTradeApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = dataTradeApp;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -729,6 +742,13 @@
 					"-ObjC",
 					"-lc++",
 				);
+				"OTHER_LDFLAGS[arch=*]" = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+					"-I\"Snark\"",
+				);
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.dataTadeApp;
 				PRODUCT_NAME = dataTradeApp;
 				SDKROOT = iphoneos;

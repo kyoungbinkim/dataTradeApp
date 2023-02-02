@@ -26,13 +26,13 @@ class LibsnarkModule: NSObject {
   var contextID : Int { get { return Int(context_id) } }
   
   @objc(getContextId:resolver:rejecter:)
-  func getContextId( circuitName: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
+  func getContextId(_ circuitName: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
     let resolveData: [String: String] = ["contextId": "\(context_id_map[circuitName] ?? 0)"];
     resolve(resolveData)
   }
   
   @objc(setContextId:resolver:rejecter:)
-  func setContextId(circuitName: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
+  func setContextId(_ circuitName: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
     context_id = context_id_map[circuitName] ?? 0;
     
     let resolveData: [String: String] = ["contextId": "\(context_id_map[circuitName] ?? 0)"];
@@ -40,7 +40,7 @@ class LibsnarkModule: NSObject {
   }
   
   @objc(loggerTest:resolver:rejecter:)
-  func loggerTest(name: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
+  func loggerTest(_ name: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
     let str = name
     if (str != "") {
       resolve(str)
@@ -61,7 +61,7 @@ class LibsnarkModule: NSObject {
   }
   
   @objc(createCircuitContext:treeHeight:hashType:serializeFormat:ecSelection:resolver:rejecter:)
-  func createCircuitContext(circuitName: String, treeHeight: String, hashType: String,  serializeFormat: Int32 = serializeFormatZKlay, ecSelection: Int32 = EC_ALT_BN128, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
+  func createCircuitContext(_ circuitName: String, treeHeight: String, hashType: String,  serializeFormat: Int32 = serializeFormatZKlay, ecSelection: Int32 = EC_ALT_BN128, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
     let _circuitName = CString(circuitName)
     let contextId: Int32 = CSnark.createCircuitContext(_circuitName.char(),
                                                        R1CS_GG,
@@ -87,9 +87,9 @@ class LibsnarkModule: NSObject {
   func buildCircuit(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
     let rtn = CSnark.buildCircuit(context_id)
     if (rtn != 0) {
-      reject("event_failure","buildCircuit: \(rtn), \(lastmsg(context_id))", Errors.buildCircuitError)
+      reject("event_failure","buildCircuit: \(rtn), \(lastmsg(contextId:context_id))", Errors.buildCircuitError)
     }
-    let resolveData: [String: String] = ["lastmsg": lastmsg(context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
+    let resolveData: [String: String] = ["lastmsg": lastmsg(contextId:context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
     resolve(resolveData)
   }
   
@@ -97,9 +97,9 @@ class LibsnarkModule: NSObject {
   func runSetup(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
     let rtn = CSnark.runSetup(context_id);
     if (rtn != 0) {
-      reject("event_failure","runSetupError: \(rtn), \(lastmsg(context_id))", Errors.runSetupError)
+      reject("event_failure","runSetupError: \(rtn), \(lastmsg(contextId:context_id))", Errors.runSetupError)
     }
-    let resolveData: [String: String] = ["lastmsg": lastmsg(context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
+    let resolveData: [String: String] = ["lastmsg": lastmsg(contextId:context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
     resolve(resolveData)
   }
   
@@ -107,9 +107,9 @@ class LibsnarkModule: NSObject {
   func runProof(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
     let rtn = CSnark.runProof(context_id)
     if (rtn != 0) {
-      reject("event_failure","runSetupError: \(rtn), \(lastmsg(context_id))", Errors.runProofError)
+      reject("event_failure","runSetupError: \(rtn), \(lastmsg(contextId:context_id))", Errors.runProofError)
     }
-    let resolveData: [String: String] = ["lastmsg": lastmsg(context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
+    let resolveData: [String: String] = ["lastmsg": lastmsg(contextId:context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
     resolve(resolveData)
   }
   
@@ -117,9 +117,9 @@ class LibsnarkModule: NSObject {
   func runVerify(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
     let rtn = CSnark.runVerify(context_id)
     if (rtn != 0) {
-      reject("event_failure","runSetupError: \(rtn), \(lastmsg(context_id))", Errors.runProofError)
+      reject("event_failure","runSetupError: \(rtn), \(lastmsg(contextId:context_id))", Errors.runProofError)
     }
-    let resolveData: [String: String] = ["lastmsg": lastmsg(context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
+    let resolveData: [String: String] = ["lastmsg": lastmsg(contextId:context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
     resolve(resolveData)
   }
   
@@ -127,9 +127,9 @@ class LibsnarkModule: NSObject {
   func setProof(proofJsonStr: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
     let rtn = CSnark.deSerializeProof(context_id, CString(proofJsonStr).char())
     if (rtn != 0) {
-      reject("event_failure","runSetupError: \(rtn), \(lastmsg(context_id))", Errors.runProofError)
+      reject("event_failure","runSetupError: \(rtn), \(lastmsg(contextId:context_id))", Errors.runProofError)
     }
-    let resolveData: [String: String] = ["lastmsg": lastmsg(context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
+    let resolveData: [String: String] = ["lastmsg": lastmsg(contextId:context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
     resolve(resolveData)
   }
   
@@ -155,9 +155,9 @@ class LibsnarkModule: NSObject {
   func writeVerifyKeyToFile(filePath: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
     let rtn = CSnark.writeVK( context_id , CString( Bundle.main.bundlePath + filePath).char() )
     if (rtn != 0){
-      reject("event_failure","writeVerifyKeyToFile: \(rtn), \(lastmsg(context_id))", Errors.writeVerifyKeyToFileError)
+      reject("event_failure","writeVerifyKeyToFile: \(rtn), \(lastmsg(contextId:context_id))", Errors.writeVerifyKeyToFileError)
     } else{
-      let resolveData: [String: String] = ["lastmsg": lastmsg(context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
+      let resolveData: [String: String] = ["lastmsg": lastmsg(contextId:context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
       resolve(resolveData)
     }
   }
@@ -166,9 +166,9 @@ class LibsnarkModule: NSObject {
   func readVerifyKeyFromFile(filePath: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
     let rtn = CSnark.readVK( context_id , CString( Bundle.main.bundlePath + filePath).char() )
     if (rtn != 0){
-      reject("event_failure","readVerifyKeyFromFile: \(rtn), \(lastmsg(context_id))", Errors.readVerifyKeyFromFileError)
+      reject("event_failure","readVerifyKeyFromFile: \(rtn), \(lastmsg(contextId:context_id))", Errors.readVerifyKeyFromFileError)
     } else{
-      let resolveData: [String: String] = ["lastmsg": lastmsg(context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
+      let resolveData: [String: String] = ["lastmsg": lastmsg(contextId:context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
       resolve(resolveData)
     }
   }
@@ -177,9 +177,9 @@ class LibsnarkModule: NSObject {
   func writeProofKeyToFile(filePath: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
     let rtn = CSnark.writePK( context_id , CString( Bundle.main.bundlePath + filePath).char() )
     if (rtn != 0){
-      reject("event_failure","writeProofKeyToFile: \(rtn), \(lastmsg(context_id))", Errors.writeProofKeyToFileError)
+      reject("event_failure","writeProofKeyToFile: \(rtn), \(lastmsg(contextId:context_id))", Errors.writeProofKeyToFileError)
     } else{
-      let resolveData: [String: String] = ["lastmsg": lastmsg(context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
+      let resolveData: [String: String] = ["lastmsg": lastmsg(contextId:context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
       resolve(resolveData)
     }
   }
@@ -188,9 +188,9 @@ class LibsnarkModule: NSObject {
   func readProofKeyFromFile(filePath: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
     let rtn = CSnark.readPK( context_id , CString( Bundle.main.bundlePath + filePath).char() )
     if (rtn != 0){
-      reject("event_failure","readProofKeyFromFile: \(rtn), \(lastmsg(context_id))", Errors.readProofKeyFromFileError)
+      reject("event_failure","readProofKeyFromFile: \(rtn), \(lastmsg(contextId:context_id))", Errors.readProofKeyFromFileError)
     } else{
-      let resolveData: [String: String] = ["lastmsg": lastmsg(context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
+      let resolveData: [String: String] = ["lastmsg": lastmsg(contextId:context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
       resolve(resolveData)
     }
   }
@@ -205,10 +205,10 @@ class LibsnarkModule: NSObject {
   public func setInput(key : String , hexValue : String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock ) -> Void {
     let rtn = CSnark.updatePrimaryInputStr( context_id , CString(key).char() , CString(hexValue).char() )
     if rtn == 1 {
-      reject("event_failure","setInput: \(rtn), \(lastmsg(context_id))", Errors.invalidPrimaryInputKey(invalidKey: key )
+      reject("event_failure","setInput: \(rtn), \(lastmsg(contextId:context_id))", Errors.invalidPrimaryInputKey(invalidKey: key )
 )
     } else {
-      let resolveData: [String: String] = ["lastmsg": lastmsg(context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
+      let resolveData: [String: String] = ["lastmsg": lastmsg(contextId:context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
       resolve(resolveData)
       
     }
@@ -225,11 +225,11 @@ class LibsnarkModule: NSObject {
       CString(hexValue).char())
     
     if rtn == 1 {
-      reject("event_failure","setInputArray: \(rtn), \(lastmsg(context_id))", Errors.invalidPrimaryInputKey(invalidKey: key ))
+      reject("event_failure","setInputArray: \(rtn), \(lastmsg(contextId:context_id))", Errors.invalidPrimaryInputKey(invalidKey: key ))
     } else if rtn == 2 {
-      reject("event_failure","setInputArray: \(rtn), \(lastmsg(context_id))", Errors.invalidPrimaryInputIndex(invalidIndex: arrayIdx , forKey : key ))
+      reject("event_failure","setInputArray: \(rtn), \(lastmsg(contextId:context_id))", Errors.invalidPrimaryInputIndex(invalidIndex: arrayIdx , forKey : key ))
     } else {
-      let resolveData: [String: String] = ["lastmsg": lastmsg(context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
+      let resolveData: [String: String] = ["lastmsg": lastmsg(contextId:context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
       resolve(resolveData)
     }
     
@@ -240,9 +240,9 @@ class LibsnarkModule: NSObject {
     let rtn = CSnark.updatePrimaryInputFromJson(context_id, CString(jsonStr).char())
     
     if(rtn != 0) {
-      reject("event_failure","setInputJsonString: \(rtn), \(lastmsg(context_id))", Errors.invalidPrimaryInputJson(invalidJson: jsonStr ))
+      reject("event_failure","setInputJsonString: \(rtn), \(lastmsg(contextId:context_id))", Errors.invalidPrimaryInputJson(invalidJson: jsonStr ))
     } else {
-      let resolveData: [String: String] = ["lastmsg": lastmsg(context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
+      let resolveData: [String: String] = ["lastmsg": lastmsg(contextId:context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
       resolve(resolveData)
     }
   }
