@@ -12,20 +12,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		3BB244BD2988F4E500EFD587 /* LibsnarkModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB244BC2988F4E500EFD587 /* LibsnarkModule.m */; };
-		3BB244C12988F51700EFD587 /* LibsnarkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB244C02988F51700EFD587 /* LibsnarkModule.swift */; };
-		3BB244C22988F51700EFD587 /* LibsnarkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB244C02988F51700EFD587 /* LibsnarkModule.swift */; };
 		3BB244CA2988F6CE00EFD587 /* libsnark_module in Resources */ = {isa = PBXBuildFile; fileRef = 3BB244C92988F6CE00EFD587 /* libsnark_module */; };
 		3BB244CB2988F6CE00EFD587 /* libsnark_module in Resources */ = {isa = PBXBuildFile; fileRef = 3BB244C92988F6CE00EFD587 /* libsnark_module */; };
-		3BB244CD2988F6DC00EFD587 /* zkSnark in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB244CC2988F6DC00EFD587 /* zkSnark */; };
 		3BB244CF2988F85600EFD587 /* crs in Resources */ = {isa = PBXBuildFile; fileRef = 3BB244CE2988F85600EFD587 /* crs */; };
 		3BB244D02988F85600EFD587 /* crs in Resources */ = {isa = PBXBuildFile; fileRef = 3BB244CE2988F85600EFD587 /* crs */; };
-		3BB244D72988FA9B00EFD587 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB244D32988FA9200EFD587 /* libcrypto.a */; };
-		3BB244D92988FA9E00EFD587 /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB244D42988FA9200EFD587 /* libgmp.a */; };
-		3BB244DA2988FAA100EFD587 /* libgmpxx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB244D52988FA9200EFD587 /* libgmpxx.a */; };
-		3BB244DB2988FAA300EFD587 /* libomp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB244D62988FA9200EFD587 /* libomp.a */; };
-		3BB244DC2988FAA600EFD587 /* libSnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB244D12988FA8000EFD587 /* libSnark.a */; };
-		3BB244DD2988FAAA00EFD587 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB244D22988FA9100EFD587 /* libssl.a */; };
 		7699B88040F8A987B510C191 /* libPods-dataTradeApp-dataTradeAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -52,11 +42,6 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = dataTradeApp/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dataTradeApp-dataTradeAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-dataTradeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dataTradeApp.debug.xcconfig"; path = "Target Support Files/Pods-dataTradeApp/Pods-dataTradeApp.debug.xcconfig"; sourceTree = "<group>"; };
-		3BB244BB2988F4A200EFD587 /* LibsnarkModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibsnarkModule.h; sourceTree = "<group>"; };
-		3BB244BC2988F4E500EFD587 /* LibsnarkModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibsnarkModule.m; sourceTree = "<group>"; };
-		3BB244BE2988F51600EFD587 /* dataTradeApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dataTradeApp-Bridging-Header.h"; sourceTree = "<group>"; };
-		3BB244BF2988F51600EFD587 /* dataTradeAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dataTradeAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		3BB244C02988F51700EFD587 /* LibsnarkModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibsnarkModule.swift; sourceTree = "<group>"; };
 		3BB244C92988F6CE00EFD587 /* libsnark_module */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = libsnark_module; sourceTree = "<group>"; };
 		3BB244CE2988F85600EFD587 /* crs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = crs; sourceTree = "<group>"; };
 		3BB244D12988FA8000EFD587 /* libSnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSnark.a; path = native_libs/iphoneos_release/libSnark.a; sourceTree = "<group>"; };
@@ -86,14 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BB244DD2988FAAA00EFD587 /* libssl.a in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-dataTradeApp.a in Frameworks */,
-				3BB244DC2988FAA600EFD587 /* libSnark.a in Frameworks */,
-				3BB244DA2988FAA100EFD587 /* libgmpxx.a in Frameworks */,
-				3BB244CD2988F6DC00EFD587 /* zkSnark in Frameworks */,
-				3BB244D92988FA9E00EFD587 /* libgmp.a in Frameworks */,
-				3BB244DB2988FAA300EFD587 /* libomp.a in Frameworks */,
-				3BB244D72988FA9B00EFD587 /* libcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,11 +104,6 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				3BB244BB2988F4A200EFD587 /* LibsnarkModule.h */,
-				3BB244BC2988F4E500EFD587 /* LibsnarkModule.m */,
-				3BB244C02988F51700EFD587 /* LibsnarkModule.swift */,
-				3BB244BE2988F51600EFD587 /* dataTradeApp-Bridging-Header.h */,
-				3BB244BF2988F51600EFD587 /* dataTradeAppTests-Bridging-Header.h */,
 			);
 			name = dataTradeApp;
 			sourceTree = "<group>";
@@ -237,9 +210,6 @@
 			dependencies = (
 			);
 			name = dataTradeApp;
-			packageProductDependencies = (
-				3BB244CC2988F6DC00EFD587 /* zkSnark */,
-			);
 			productName = dataTradeApp;
 			productReference = 13B07F961A680F5B00A75B9A /* dataTradeApp.app */;
 			productType = "com.apple.product-type.application";
@@ -460,7 +430,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* dataTradeAppTests.m in Sources */,
-				3BB244C22988F51700EFD587 /* LibsnarkModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,9 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BB244C12988F51700EFD587 /* LibsnarkModule.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
-				3BB244BD2988F4E500EFD587 /* LibsnarkModule.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,7 +457,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-dataTradeApp-dataTradeAppTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -505,6 +471,7 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = (
+					"$(SDKROOT)/usr/lib/swift",
 					"$(inherited)",
 					"$(PROJECT_DIR)/native_libs/iphoneos_depend_libs",
 				);
@@ -526,7 +493,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-dataTradeApp-dataTradeAppTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -538,6 +504,7 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = (
+					"$(SDKROOT)/usr/lib/swift",
 					"$(inherited)",
 					"$(PROJECT_DIR)/native_libs/iphoneos_depend_libs",
 				);
@@ -568,6 +535,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = (
+					"$(SDKROOT)/usr/lib/swift",
 					"$(inherited)",
 					"$(PROJECT_DIR)/native_libs/iphoneos_depend_libs",
 					"$(PROJECT_DIR)/native_libs/iphoneos_release",
@@ -599,6 +567,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = (
+					"$(SDKROOT)/usr/lib/swift",
 					"$(inherited)",
 					"$(PROJECT_DIR)/native_libs/iphoneos_depend_libs",
 					"$(PROJECT_DIR)/native_libs/iphoneos_release",
@@ -784,13 +753,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		3BB244CC2988F6DC00EFD587 /* zkSnark */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = zkSnark;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
 }

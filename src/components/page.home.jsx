@@ -23,6 +23,8 @@ import TableElement from '../elements/table';
 import { getDataListQuery } from '../core/http/dataQuery';
 import { selectData, setData } from '../store/infoSlice';
 
+// import LibSnark, {snarkProver} from '../core/snark/libsnark.js';
+
 const PageHome = ({navigation}) => {
     const dispatch = useDispatch();
     const dataList =useSelector(selectData);
