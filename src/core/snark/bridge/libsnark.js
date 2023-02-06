@@ -19,7 +19,7 @@ export default class Libsnark {
      * @param {string} hashType
      * @param {string} serializeFormat
      */
-    constructor(circuitName, treeHeight = '32', hashType = 'MiMC7', serializeFormat = 'SERIALIZE_FORMAT_ZKLAY') {
+    constructor(circuitName='GenTrade', treeHeight = '32', hashType = 'MiMC7', serializeFormat = 'SERIALIZE_FORMAT_ZKLAY') {
         this.circuitName = circuitName;
         this.treeHeight = treeHeight;
         this.hashType = hashType;
@@ -38,7 +38,9 @@ export default class Libsnark {
             console.debug('[LIBSNARK] finalizeCircuit !', this.contextId);
             await modules.finalizeCircuit(this.contextId);
         }
-        const resolveDataCreateCircuitContext = await modules.createCircuitContext(this.circuitName, this.treeHeight, this.hashType, this.serializeFormat, this.ecSelection);
+        const resolveDataCreateCircuitContext = await modules.createCircuitContext(this.circuitName, this.serializeFormat, this.ecSelection);
+        // const resolveDataCreateCircuitContext = await modules.createGenTradeCircuitContext(this.circuitName, this.serializeFormat, this.ecSelection);
+
         this.contextId = Number(_.get(resolveDataCreateCircuitContext, 'contextId'));
         console.debug('[LIBSNARK] createCircuitContext !', resolveDataCreateCircuitContext);
         const resolveDataBuildCircuit = await modules.buildCircuit();

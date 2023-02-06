@@ -58,7 +58,7 @@ async function createCircuitContext(circuitName, treeHeight='', hashType='', ser
     if (typeof ecSelection === 'string') {
         ecSelection = EC_SELECTION[ecSelection];
     }
-    return LibsnarkModule.createCircuitContext(circuitName, treeHeight, hashType, serializeFormat, ecSelection);
+    return LibsnarkModule.createGenTradeCircuitContext(circuitName, serializeFormat, ecSelection);
 }
 
 async function buildCircuit() {

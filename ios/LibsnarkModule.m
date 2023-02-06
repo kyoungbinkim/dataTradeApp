@@ -20,6 +20,8 @@ RCT_EXTERN_METHOD(testMethod)
 
 RCT_EXTERN_METHOD(createCircuitContext:(NSString *)circuitName treeHeight:(NSString *)treeHeight hashType:(NSString *)hashType serializeFormat:(NSInteger)serializeFormat ecSelection:(NSInteger)ecSelection resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(createGenTradeCircuitContext:(NSString *)circuitName serializeFormat:(NSInteger)serializeFormat ecSelection:(NSInteger)ecSelection resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+
 RCT_EXTERN_METHOD(buildCircuit:(RCTPromiseResolveBlock)resolve  rejecter:(RCTPromiseRejectBlock)reject)
 
 RCT_EXTERN_METHOD(runSetup:(RCTPromiseResolveBlock)resolve  rejecter:(RCTPromiseRejectBlock)reject)

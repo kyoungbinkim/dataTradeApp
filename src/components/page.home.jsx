@@ -93,6 +93,7 @@ const PageHome = ({navigation}) => {
                     dispatch(setData(data));
                 }}
             />
+            
         </View>
     )
 }

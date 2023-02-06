@@ -3,6 +3,8 @@ import { StyleSheet, View } from 'react-native';
 import { Text, Icon, Button } from 'react-native-elements';
 import CustomChipButton from '../elements/chipButton';
 
+import testSnark from '../core/snark/test';
+
 const InitWalletPage = ({ navigation }) => {
 
     useLayoutEffect(() => {
@@ -24,6 +26,13 @@ const InitWalletPage = ({ navigation }) => {
                 title={'Login'}
                 containerStyle={[styles.containerBt]}
                 onPress={() => {navigation.navigate('Login') }}
+            />
+            <CustomChipButton
+                title={'snarkTest'}
+                containerStyle={[styles.containerBt]}
+                onPress={() => {
+                    testSnark();
+                }}
             />
 
         </View>

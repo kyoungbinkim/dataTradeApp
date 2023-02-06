@@ -22,7 +22,7 @@ class LibsnarkModule: NSObject {
   public static let EC_BLS12_381 : Int32 = 2
   
   private var context_id : Int32 = 0
-  private var context_id_map: [String: Int32] = ["ZKlay": 0, "ZKlay_nft": 0];
+  private var context_id_map: [String: Int32] = ["ZKlay": 0, "ZKlay_nft": 0, "GenTrade":0];
   var contextID : Int { get { return Int(context_id) } }
   
   @objc(getContextId:resolver:rejecter:)
@@ -78,6 +78,24 @@ class LibsnarkModule: NSObject {
     CSnark.serializeFormat(contextId , serializeFormat )
     CSnark.assignCircuitArgument(contextId, CString("treeHeight").char(), _treeHeight.char())
     CSnark.assignCircuitArgument(contextId, CString("hashType").char(), _hashType.char())
+    
+    let resolveData: [String: String] = ["circuitName": circuitName, "contextId": "\(contextId)"]
+    resolve(resolveData)
+  }
+  
+  @objc(createGenTradeCircuitContext:serializeFormat:ecSelection:resolver:rejecter:)
+  func createGenTradeCircuitContext(_ circuitName: String, serializeFormat: Int32 = serializeFormatZKlay, ecSelection: Int32 = EC_ALT_BN128, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
+    let _circuitName = CString(circuitName)
+    let contextId: Int32 = CSnark.createCircuitContext(_circuitName.char(),
+                                                       R1CS_GG,
+                                                       ecSelection,
+                                                       CString("").char(),
+                                                       CString("").char(),
+                                                       CString("").char())
+    context_id_map[circuitName] = contextId;
+    context_id = contextId;
+    
+    CSnark.serializeFormat(contextId , serializeFormat )
     
     let resolveData: [String: String] = ["circuitName": circuitName, "contextId": "\(contextId)"]
     resolve(resolveData)
