@@ -1,4 +1,5 @@
 /* global BigInt */
+import _ from 'lodash'
 import curve from './curve.js';
 import math from '../utils/math.js';
 import mimc from './mimc.js';
@@ -188,7 +189,6 @@ class publicKeyEncryption {
 
     /**
      * 
-     * @param {string}     apk     Auditor's public key
      * @param {{ena: string, pkOwn: string, pkEnc: string}}      upk     User's public key
      * @param  {...string}          msg     The plaintext | hexadecimal string type
      * @returns 
@@ -197,7 +197,7 @@ class publicKeyEncryption {
         let r = math.randomFieldElement(constants.SUBGROUP_ORDER);
         let k = math.randomFieldElement(this.prime);
         let c0 = curve.basePointMul(r).toString(16);
-        let c1 = math.mod(k * curve.multscalar(types.hexToInt(upk.pkEnc), r), this.prime).toString(16);
+        let c1 = math.mod(k * curve.multscalar(types.hexToInt(_.get(upk,'pkEnc')), r), this.prime).toString(16);
         let c2 = (() => {
             let ret = [];
             let mimc7 = new mimc.MiMC7();

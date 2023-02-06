@@ -1,28 +1,144 @@
+/* global BigInt */
+
 import types from '../../utils/types'
+import mimc from '../../crypto/mimc'
 
-export default class SnarkInput {
+import Encryption, { sCT } from '../../crypto/encryption'
+import PublicKey from './pk'
+import CoinCommitment from './cm'
 
+const fee_ratio = 0.3
+
+export default class SnarkInputs{
+    /**
+     * 
+     * @param {PublicKey} PublicKey_peer 
+     * @param {PublicKey} PublicKey_del 
+     * @param {PublicKey} PublicKey_cons 
+     * @param {sCT} ENA 
+     * @param {sCT} ENA_ 
+     * @param {String} k_ena 
+     * @param {String} h_k 
+     */
     constructor(
-        g_r,
-        c1,
-        cm_own,
-        cm_del,
+        PublicKey_peer,
+        PublicKey_del,
+        PublicKey_cons,
         ENA,
         ENA_,
-        fee_del,
-        fee_own,
-        CT_r,
-        CT_cons,
-        h_k,
-        r_cm,
         k_ena,
-        r_enc,
-        k_enc,
-        pk_enc_cons,
-        pk_enc_peer,
-        pk_own_cons,
-        pk_own_peer,
-        pk_own_del
+        h_k
+    ){
+        // this.PublicKey_cons = PublicKey_cons
+        // this.PublicKey_peer = PublicKey_peer
+        // this.PublicKey_del  = PublicKey_del
+
+        this.pk_enc_peer = PublicKey_peer.pk_enc
+        this.pk_own_peer = PublicKey_peer.pk_own
+        this.pk_enc_cons = PublicKey_cons.pk_enc
+        this.pk_own_cons = PublicKey_cons.pk_own
+        this.pk_enc_del  = PublicKey_del.pk_enc
+        this.pk_own_del  = PublicKey_del.pk_own
+
+        this.ENA = ENA
+        this.ENA_= ENA_
+        this.h_k = h_k
+        this.k_ena = k_ena
+    }
+
+    init() {
+
+        const symEnc = new Encryption.symmetricKeyEncryption(this.k_ena);
+        const pubEnc = new Encryption.publicKeyEncryption()
+        const fee = BigInt('0x' + symEnc.Dec(this.ENA) )- BigInt('0x'+symEnc.Dec(this.ENA_),'hex' )
+        console.log(symEnc.Dec(this.ENA),'1000000'.toString(16))
+        console.log(symEnc.Dec(this.ENA_), '2001'.toString(16))
+        console.log('fee : ', fee.toString(10))
+
+        this.fee_del = fee.toString(16)
+        this.fee_own = fee.toString(16)
+        
+        console.log('fee_del : ',this.fee_del)
+        console.log('fee_own : ',this.fee_own, '\n\n')
+
+        const [cm, rand] = CoinCommitment.genCm(
+            this.pk_own_peer,
+            this.pk_own_del,
+            this.pk_enc_cons,
+            this.fee_own,
+            this.fee_del,
+            this.h_k
+        )
+        console.log(cm.toJson(), rand);
+        this.cm_del = cm.cm_del
+        this.cm_own = cm.cm_own
+        this.r_cm = rand
+
+        const [pct, r_enc, k_enc]= pubEnc.Enc(
+            new Object({ pkEnc : this.pk_enc_peer }), 
+            this.pk_enc_cons,
+            this.pk_own_cons,
+            this.r_cm,
+            this.fee_own.toString(16),
+            this.fee_del.toString(16),
+            this.h_k
+        )
+        const pctList = pct.toList();
+        this.g_r = pctList[0];
+        this.c1  = pctList[1];
+        this.CT_cons = pctList.slice(2);
+        this.r_enc = r_enc
+        this.k_enc = k_enc
+    }
+
+    toJson(){return JSON.stringify(this, null, 2)}
+}
+
+
+export class SnarkInput {
+
+    g_r     = undefined
+    c1      = undefined
+    cm_own  = undefined
+    cm_del  = undefined
+    ENA     = undefined
+    ENA_    = undefined
+    fee_del = undefined
+    fee_own = undefined
+    CT_r    = undefined 
+    CT_cons = undefined
+    h_k     = undefined
+    r_cm    = undefined
+    k_ena   = undefined
+    r_enc   = undefined
+    k_enc   = undefined
+    pk_enc_cons = undefined
+    pk_enc_peer = undefined
+    pk_own_cons = undefined
+    pk_own_peer = undefined
+    pk_own_del  = undefined
+
+    constructor(
+        g_r     = undefined,
+        c1      = undefined,
+        cm_own  = undefined,
+        cm_del  = undefined,
+        ENA     = undefined ,
+        ENA_    = undefined,
+        fee_del = undefined,
+        fee_own = undefined,
+        CT_r    = undefined,
+        CT_cons = undefined,
+        h_k     = undefined,
+        r_cm    = undefined,
+        k_ena   = undefined,
+        r_enc   = undefined,
+        k_enc   = undefined,
+        pk_enc_cons = undefined,
+        pk_enc_peer = undefined,
+        pk_own_cons = undefined,
+        pk_own_peer = undefined,
+        pk_own_del  = undefined
     ) 
     {
         this.g_r        =g_r
@@ -47,4 +163,19 @@ export default class SnarkInput {
         this.pk_own_del =pk_own_del
     }
 
+    /**
+     * 
+     * @param {Order} ord 
+     */
+    uploadOrder(ord) { 
+        this.pk_own_cons = ord.pk_own_cons
+        this.pk_enc_cons = ord.pk_enc_cons
+        this.r_cm        = ord.r_cm
+        this.fee_del     = ord.fee_del
+        this.fee_own     = ord.fee_own
+        this.h_k         = ord.h_k
+    }
+
+    
+    toJson() { return JSON.stringify(this, null, 2) }
 }

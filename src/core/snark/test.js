@@ -1,8 +1,14 @@
+/* global BigInt */
+
 import _ from 'lodash'
 
+import math from '../utils/math';
+import Encryption from '../crypto/encryption';
+import UserKey from '../wallet/keyStruct';
+import PublicKey from './struct/pk';
 import Libsnark from "./bridge/libsnark"
 import Order from "./struct/order"
-import SnarkInput from "./struct/snarkInput";
+import SnarkInputs from "./struct/snarkInput";
 
 const testSnark = async () => {
     let snarkClass = new Libsnark();
@@ -34,25 +40,36 @@ const testSnark = async () => {
 }
 
 export const testOrder = () => {
+    const h_k = math.randomFieldElement().toString(16)
 
-    console.log("hi" , Number.parseInt(100 * 0.3))
+    const consKey = UserKey.keyGen()
+    const peerKey = UserKey.keyGen()
+    const delKey  = UserKey.keyGen()
 
-    const ord = new Order(
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
+    const pubkey_peer = PublicKey.fromUserKey(peerKey, type='peer')
+    const pubkey_cons = PublicKey.fromUserKey(consKey, type='cons')
+    const pubkey_del  = PublicKey.fromUserKey(delKey, type='del')
+
+    const symEnc = new Encryption.symmetricKeyEncryption(consKey.skEnc)
+
+    const ENA = symEnc.Enc(BigInt(100000).toString(16))
+    const ENA_= symEnc.Enc(BigInt(2000).toString(16));
+    
+    console.log(pubkey_cons.toJson(), pubkey_del.toJson(), pubkey_peer.toJson())
+
+    let snarkInputs = new SnarkInputs(
+        pubkey_peer,
+        pubkey_del,
+        pubkey_cons,
+        ENA,
+        ENA_,
+        consKey.skEnc,
+        h_k
     )
-    console.log(ord.toJson());
-    const cm = ord.makeCoinCommitment(1, 1);
-    console.log(cm.toJson());
-
-    const snarkInputs = new SnarkInput();
-    snarkInputs.uploadOrder(ord);
-
+    snarkInputs.init()
     console.log(snarkInputs.toJson())
 }
+
+
 
 export default testSnark;

@@ -1,5 +1,5 @@
-import Config from '../../utils/config.js';
-import modules from './modules.js';
+import Config from '../../utils/config';
+import modules from './modules';
 import _ from 'lodash';
 
 export default class Libsnark {
@@ -14,12 +14,12 @@ export default class Libsnark {
     ecSelection = Config.EC_TYPE;
 
     /**
-     * @param {string} circuitName 'GenTrade' 
+     * @param {string} circuitName 'ZKlay' | 'ZKlay_nft'
      * @param {string} treeHeight
      * @param {string} hashType
      * @param {string} serializeFormat
      */
-    constructor(circuitName='GenTrade', treeHeight='32', hashType = 'MiMC7', serializeFormat = 'SERIALIZE_FORMAT_ZKLAY') {
+    constructor(circuitName='GenTrade', treeHeight = '32', hashType = 'MiMC7', serializeFormat = 'SERIALIZE_FORMAT_ZKLAY') {
         this.circuitName = circuitName;
         this.treeHeight = treeHeight;
         this.hashType = hashType;
@@ -38,12 +38,9 @@ export default class Libsnark {
             console.debug('[LIBSNARK] finalizeCircuit !', this.contextId);
             await modules.finalizeCircuit(this.contextId);
         }
-        console.log('context ID : ', this.contextId);
+        const resolveDataCreateCircuitContext = await modules.createCircuitContext(this.circuitName, this.serializeFormat, this.ecSelection);
+        // const resolveDataCreateCircuitContext = await modules.createGenTradeCircuitContext(this.circuitName, this.serializeFormat, this.ecSelection);
 
-
-        // const resolveDataCreateCircuitContext = await modules.createCircuitContext(this.circuitName, this.treeHeight, this.hashType, this.serializeFormat, this.ecSelection);
-        const resolveDataCreateCircuitContext = 
-            await modules.createCircuitContext(this.circuitName, this.serializeFormat, this.ecSelection);
         this.contextId = Number(_.get(resolveDataCreateCircuitContext, 'contextId'));
         console.debug('[LIBSNARK] createCircuitContext !', resolveDataCreateCircuitContext);
         const resolveDataBuildCircuit = await modules.buildCircuit();

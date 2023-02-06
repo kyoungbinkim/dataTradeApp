@@ -1,4 +1,5 @@
-import math from '../../utils/math';
+// import crypto from 'crypto';
+
 import Config from '../../utils/config';
 import CurveParam from '../../crypto/curveParam';
 import types from "../../utils/types";
@@ -23,15 +24,6 @@ export default class CoinCommitment {
         fee_del,
         h_k
     }) {
-        console.log(
-            pk_own_peer,
-        pk_own_del,
-        pk_enc_cons,
-        r_cm,
-        fee_own,
-        fee_del,
-        h_k
-        )
         const mimc7 = new mimc.MiMC7();
 
         const cm_own = mimc7.hash(pk_own_peer, r_cm, fee_own, h_k, pk_enc_cons);
@@ -40,17 +32,19 @@ export default class CoinCommitment {
         return new CoinCommitment(cm_own, cm_del);
     }
 
-    static genCm(
+    static genCm({
         pk_own_peer,
         pk_own_del,
         pk_enc_cons,
         fee_own, 
         fee_del, 
         h_k, 
-    ) {
-        const randomHex = math.randomFieldElement()
-        return [
-            this.makeCm({
+    }) {
+        let prime = CurveParam(Config.EC_TYPE).prime
+        let bitLength = parseInt(prime.toString(2).length);
+        // let randomHex = '0x' + crypto.randomBytes(bitLength).toString('hex');
+        let randomHex = '0x1122ffffffff'
+        return this.makeCm({
             pk_own_peer : pk_own_peer,
             pk_own_del  : pk_own_del,
             pk_enc_cons : pk_enc_cons,
@@ -58,7 +52,7 @@ export default class CoinCommitment {
             fee_own     : fee_own, 
             fee_del     : fee_del, 
             h_k         : h_k, 
-        }), randomHex.toString(16)];
+        })
     }
 
     toJson(){

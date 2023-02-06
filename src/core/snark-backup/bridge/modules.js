@@ -51,7 +51,7 @@ async function testMethod() {
  * @param {string|Number} ecSelection       EC_ALT_BN128: 1 | EC_BLS12_381: 2
  * @returns {Promise<*>}
  */
-async function createCircuitContext(circuitName, serializeFormat = SERIALIZE_FORMAT.SERIALIZE_FORMAT_ZKLAY, ecSelection = EC_SELECTION.EC_ALT_BN128) {
+async function createCircuitContext(circuitName, treeHeight='', hashType='', serializeFormat = SERIALIZE_FORMAT.SERIALIZE_FORMAT_ZKLAY, ecSelection = EC_SELECTION.EC_ALT_BN128) {
     if (typeof serializeFormat === 'string') {
         serializeFormat = SERIALIZE_FORMAT[serializeFormat];
     }
