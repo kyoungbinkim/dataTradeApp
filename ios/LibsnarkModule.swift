@@ -135,7 +135,7 @@ class LibsnarkModule: NSObject {
   func runVerify(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
     let rtn = CSnark.runVerify(context_id)
     if (rtn != 0) {
-      reject("event_failure","runSetupError: \(rtn), \(lastmsg(contextId:context_id))", Errors.runProofError)
+      reject("event_failure","runVerifyError: \(rtn), \(lastmsg(contextId:context_id))", Errors.runProofError)
     }
     let resolveData: [String: String] = ["lastmsg": lastmsg(contextId:context_id), "contextId": "\(context_id)", "rtn": "\(rtn)"]
     resolve(resolveData)

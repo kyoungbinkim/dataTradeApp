@@ -12,13 +12,13 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		3B6E8A22298CB77F00BB4A23 /* libSnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A21298CB77B00BB4A23 /* libSnark.a */; };
 		3B6E8A29298CB9B700BB4A23 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A27298CB9AF00BB4A23 /* libcrypto.a */; };
 		3B6E8A2A298CB9B800BB4A23 /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A25298CB9AF00BB4A23 /* libgmp.a */; };
 		3B6E8A2C298CB9B800BB4A23 /* libomp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A24298CB9AF00BB4A23 /* libomp.a */; };
 		3B6E8A2D298CB9B800BB4A23 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A26298CB9AF00BB4A23 /* libssl.a */; };
 		3B6E8A2E298CB9D300BB4A23 /* libgmpxx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A28298CB9B000BB4A23 /* libgmpxx.a */; };
-		3BA6CED62990D6820062EE86 /* crs in Resources */ = {isa = PBXBuildFile; fileRef = 3BE3666E29882E4500A702E3 /* crs */; };
+		3B84D118299221E5005283B5 /* libSnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA6CED92991FEDF0062EE86 /* libSnark.a */; };
+		3BA6CED82991F4840062EE86 /* crs in Resources */ = {isa = PBXBuildFile; fileRef = 3BA6CED72991F4840062EE86 /* crs */; };
 		3BB244B82988EC9900EFD587 /* libPods-dataTradeApp-dataTradeAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */; };
 		3BB244BA2988EED800EFD587 /* zkSnark in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB244B92988EED800EFD587 /* zkSnark */; };
 		3BC88AAE298B59C00097527D /* LibsnarkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3666829882DA700A702E3 /* LibsnarkModule.swift */; };
@@ -55,12 +55,14 @@
 		3B6E8A26298CB9AF00BB4A23 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = native_libs/iphonesimulator_depend_libs/libssl.a; sourceTree = "<group>"; };
 		3B6E8A27298CB9AF00BB4A23 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = native_libs/iphonesimulator_depend_libs/libcrypto.a; sourceTree = "<group>"; };
 		3B6E8A28298CB9B000BB4A23 /* libgmpxx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmpxx.a; path = native_libs/iphonesimulator_depend_libs/libgmpxx.a; sourceTree = "<group>"; };
+		3BA6CED72991F4840062EE86 /* crs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = crs; sourceTree = "<group>"; };
+		3BA6CED92991FEDF0062EE86 /* libSnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSnark.a; path = native_libs/lib/sim/libSnark.a; sourceTree = "<group>"; };
+		3BA6CEDC2992017E0062EE86 /* Packages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Packages; sourceTree = "<group>"; };
 		3BB244932988CC3300EFD587 /* LibsnarkModule-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LibsnarkModule-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BE3665829882AA500A702E3 /* libsnark_module */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = libsnark_module; sourceTree = "<group>"; };
 		3BE3666829882DA700A702E3 /* LibsnarkModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibsnarkModule.swift; sourceTree = "<group>"; };
 		3BE3666A29882DD200A702E3 /* LibsnarkModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibsnarkModule.m; sourceTree = "<group>"; };
 		3BE3666D29882E1000A702E3 /* dataTradeApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dataTradeApp-Bridging-Header.h"; sourceTree = "<group>"; };
-		3BE3666E29882E4500A702E3 /* crs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = crs; sourceTree = "<group>"; };
 		3BE366722988AEE900A702E3 /* LibsnarkModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibsnarkModule.h; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-dataTradeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dataTradeApp.release.xcconfig"; path = "Target Support Files/Pods-dataTradeApp/Pods-dataTradeApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-dataTradeApp-dataTradeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dataTradeApp-dataTradeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-dataTradeApp-dataTradeAppTests/Pods-dataTradeApp-dataTradeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,7 +92,7 @@
 				3B6E8A2E298CB9D300BB4A23 /* libgmpxx.a in Frameworks */,
 				3B6E8A29298CB9B700BB4A23 /* libcrypto.a in Frameworks */,
 				3B6E8A2C298CB9B800BB4A23 /* libomp.a in Frameworks */,
-				3B6E8A22298CB77F00BB4A23 /* libSnark.a in Frameworks */,
+				3B84D118299221E5005283B5 /* libSnark.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +137,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3BA6CEDC2992017E0062EE86 /* Packages */,
+				3BA6CED92991FEDF0062EE86 /* libSnark.a */,
 				3B6E8A27298CB9AF00BB4A23 /* libcrypto.a */,
 				3B6E8A25298CB9AF00BB4A23 /* libgmp.a */,
 				3B6E8A28298CB9B000BB4A23 /* libgmpxx.a */,
@@ -166,7 +170,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				3BE3666E29882E4500A702E3 /* crs */,
+				3BA6CED72991F4840062EE86 /* crs */,
 				3BE3666629882D3A00A702E3 /* Packages */,
 				13B07FAE1A68108700A75B9A /* dataTradeApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -297,7 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BA6CED62990D6820062EE86 /* crs in Resources */,
+				3BA6CED82991F4840062EE86 /* crs in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -601,7 +605,7 @@
 				);
 				INFOPLIST_FILE = dataTradeApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = dataTradeApp;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -611,6 +615,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/native_libs/simulator_release",
 					"$(PROJECT_DIR)/native_libs/iphonesimulator_depend_libs",
+					"$(PROJECT_DIR)/native_libs/lib/sim",
 				);
 				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
@@ -697,7 +702,7 @@
 				);
 				INFOPLIST_FILE = dataTradeApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = dataTradeApp;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -707,6 +712,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/native_libs/simulator_release",
 					"$(PROJECT_DIR)/native_libs/iphonesimulator_depend_libs",
+					"$(PROJECT_DIR)/native_libs/lib/sim",
 				);
 				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (

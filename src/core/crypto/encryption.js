@@ -21,6 +21,7 @@ class sCT {
     }
 
     toJson() { return JSON.stringify(this); }
+    toList() { return [ this.r, this.ct ]; }
 
     static fromJson(sCTJson) {
         let dataJson = JSON.parse(sCTJson);
@@ -222,19 +223,19 @@ class publicKeyEncryption {
      * @param {boolean}     audit       Whether or not to audit, 'true' is used by the auditor, and 'false' is used by the user.
      * @returns 
      */
-    Dec(pct, privKey, audit ) {
+    Dec(pct, privKey ) {
         let mimc7 = new mimc.MiMC7();
         let denom = curve.multscalar(
             types.hexToInt(pct.c0),
             types.hexToInt(privKey)
         );
         denom = math.modInv(denom, this.prime);
-        let encKey = audit === true ? types.hexToInt(pct.c2) : types.hexToInt(pct.c1); 
+        let encKey = types.hexToInt(pct.c1); 
         
         let key = math.mod((encKey * denom), this.prime);
         return (() => {
             let ret = [];
-            for(const [i, e] of pct.c3.entries()){
+            for(const [i, e] of pct.c2.entries()){
                 let hashInput = (key + BigInt(i.toString(10))).toString(16);
                 let hashed = types.hexToInt((mimc7.hash(hashInput)));
                 ret.push(
