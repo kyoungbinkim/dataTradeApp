@@ -611,9 +611,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SDKROOT)/usr/lib/swift",
 					"$(inherited)",
+					"$(PROJECT_DIR)/native_libs/arm64",
 					"$(PROJECT_DIR)/native_libs/simulator_release",
 					"$(PROJECT_DIR)/native_libs/iphonesimulator_depend_libs",
-					"$(PROJECT_DIR)/native_libs/arm64",
 				);
 				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
@@ -708,9 +708,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SDKROOT)/usr/lib/swift",
 					"$(inherited)",
+					"$(PROJECT_DIR)/native_libs/arm64",
 					"$(PROJECT_DIR)/native_libs/simulator_release",
 					"$(PROJECT_DIR)/native_libs/iphonesimulator_depend_libs",
-					"$(PROJECT_DIR)/native_libs/arm64",
 				);
 				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
