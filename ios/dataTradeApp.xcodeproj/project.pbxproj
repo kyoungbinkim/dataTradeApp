@@ -12,12 +12,12 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		3B6E8A22298CB77F00BB4A23 /* libSnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A21298CB77B00BB4A23 /* libSnark.a */; };
 		3B6E8A29298CB9B700BB4A23 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A27298CB9AF00BB4A23 /* libcrypto.a */; };
 		3B6E8A2A298CB9B800BB4A23 /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A25298CB9AF00BB4A23 /* libgmp.a */; };
 		3B6E8A2C298CB9B800BB4A23 /* libomp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A24298CB9AF00BB4A23 /* libomp.a */; };
 		3B6E8A2D298CB9B800BB4A23 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A26298CB9AF00BB4A23 /* libssl.a */; };
 		3B6E8A2E298CB9D300BB4A23 /* libgmpxx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A28298CB9B000BB4A23 /* libgmpxx.a */; };
+		3B84D11E2992306C005283B5 /* libSnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B84D11A29922DA2005283B5 /* libSnark.a */; };
 		3BA6CED62990D6820062EE86 /* crs in Resources */ = {isa = PBXBuildFile; fileRef = 3BE3666E29882E4500A702E3 /* crs */; };
 		3BB244B82988EC9900EFD587 /* libPods-dataTradeApp-dataTradeAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */; };
 		3BB244BA2988EED800EFD587 /* zkSnark in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB244B92988EED800EFD587 /* zkSnark */; };
@@ -55,6 +55,7 @@
 		3B6E8A26298CB9AF00BB4A23 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = native_libs/iphonesimulator_depend_libs/libssl.a; sourceTree = "<group>"; };
 		3B6E8A27298CB9AF00BB4A23 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = native_libs/iphonesimulator_depend_libs/libcrypto.a; sourceTree = "<group>"; };
 		3B6E8A28298CB9B000BB4A23 /* libgmpxx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmpxx.a; path = native_libs/iphonesimulator_depend_libs/libgmpxx.a; sourceTree = "<group>"; };
+		3B84D11A29922DA2005283B5 /* libSnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSnark.a; path = native_libs/arm64/libSnark.a; sourceTree = "<group>"; };
 		3BB244932988CC3300EFD587 /* LibsnarkModule-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LibsnarkModule-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BE3665829882AA500A702E3 /* libsnark_module */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = libsnark_module; sourceTree = "<group>"; };
 		3BE3666829882DA700A702E3 /* LibsnarkModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibsnarkModule.swift; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B84D11E2992306C005283B5 /* libSnark.a in Frameworks */,
 				3B6E8A2D298CB9B800BB4A23 /* libssl.a in Frameworks */,
 				3BB244BA2988EED800EFD587 /* zkSnark in Frameworks */,
 				3B6E8A2A298CB9B800BB4A23 /* libgmp.a in Frameworks */,
@@ -90,7 +92,6 @@
 				3B6E8A2E298CB9D300BB4A23 /* libgmpxx.a in Frameworks */,
 				3B6E8A29298CB9B700BB4A23 /* libcrypto.a in Frameworks */,
 				3B6E8A2C298CB9B800BB4A23 /* libomp.a in Frameworks */,
-				3B6E8A22298CB77F00BB4A23 /* libSnark.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +136,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B84D11A29922DA2005283B5 /* libSnark.a */,
 				3B6E8A27298CB9AF00BB4A23 /* libcrypto.a */,
 				3B6E8A25298CB9AF00BB4A23 /* libgmp.a */,
 				3B6E8A28298CB9B000BB4A23 /* libgmpxx.a */,
@@ -611,6 +613,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/native_libs/simulator_release",
 					"$(PROJECT_DIR)/native_libs/iphonesimulator_depend_libs",
+					"$(PROJECT_DIR)/native_libs/arm64",
 				);
 				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
@@ -707,6 +710,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/native_libs/simulator_release",
 					"$(PROJECT_DIR)/native_libs/iphonesimulator_depend_libs",
+					"$(PROJECT_DIR)/native_libs/arm64",
 				);
 				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (

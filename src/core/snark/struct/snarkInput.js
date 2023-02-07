@@ -37,7 +37,6 @@ export default class SnarkInputs{
         this.pk_own_peer = PublicKey_peer.pk_own
         this.pk_enc_cons = PublicKey_cons.pk_enc
         this.pk_own_cons = PublicKey_cons.pk_own
-        this.pk_enc_del  = PublicKey_del.pk_enc
         this.pk_own_del  = PublicKey_del.pk_own
 
         this.ENA = ENA
@@ -51,14 +50,14 @@ export default class SnarkInputs{
         const symEnc = new Encryption.symmetricKeyEncryption(this.k_ena);
         const pubEnc = new Encryption.publicKeyEncryption()
         const fee = BigInt('0x' + symEnc.Dec(this.ENA) )- BigInt('0x'+symEnc.Dec(this.ENA_),'hex' )
-        console.log(symEnc.Dec(this.ENA),'1000000'.toString(16))
-        console.log(symEnc.Dec(this.ENA_), '2001'.toString(16))
+        console.log(symEnc.Dec(this.ENA),)
+        console.log(symEnc.Dec(this.ENA_), )
         console.log('fee : ', fee.toString(10))
 
-        this.fee_del = fee.toString(16)
-        this.fee_own = fee.toString(16)
+        this.fee_del = BigInt('2000').toString(16).padStart(64, '0')
+        this.fee_own = BigInt('96000').toString(16).padStart(64, '0')
         
-        console.log('fee_del : ',this.fee_del)
+        console.log('fee_del : ',this.fee_del.padStart(64, '0'))
         console.log('fee_own : ',this.fee_own, '\n\n')
 
         const [cm, rand] = CoinCommitment.genCm(
@@ -91,91 +90,9 @@ export default class SnarkInputs{
         this.k_enc = k_enc
     }
 
-    toJson(){return JSON.stringify(this, null, 2)}
-}
-
-
-export class SnarkInput {
-
-    g_r     = undefined
-    c1      = undefined
-    cm_own  = undefined
-    cm_del  = undefined
-    ENA     = undefined
-    ENA_    = undefined
-    fee_del = undefined
-    fee_own = undefined
-    CT_r    = undefined 
-    CT_cons = undefined
-    h_k     = undefined
-    r_cm    = undefined
-    k_ena   = undefined
-    r_enc   = undefined
-    k_enc   = undefined
-    pk_enc_cons = undefined
-    pk_enc_peer = undefined
-    pk_own_cons = undefined
-    pk_own_peer = undefined
-    pk_own_del  = undefined
-
-    constructor(
-        g_r     = undefined,
-        c1      = undefined,
-        cm_own  = undefined,
-        cm_del  = undefined,
-        ENA     = undefined ,
-        ENA_    = undefined,
-        fee_del = undefined,
-        fee_own = undefined,
-        CT_r    = undefined,
-        CT_cons = undefined,
-        h_k     = undefined,
-        r_cm    = undefined,
-        k_ena   = undefined,
-        r_enc   = undefined,
-        k_enc   = undefined,
-        pk_enc_cons = undefined,
-        pk_enc_peer = undefined,
-        pk_own_cons = undefined,
-        pk_own_peer = undefined,
-        pk_own_del  = undefined
-    ) 
-    {
-        this.g_r        =g_r
-        this.c1         =c1
-        this.cm_own     =cm_own
-        this.cm_del     =cm_del
-        this.ENA        =ENA
-        this.ENA_       =ENA_
-        this.fee_del    =fee_del
-        this.fee_own    =fee_own
-        this.CT_r       =CT_r
-        this.CT_cons    =CT_cons
-        this.h_k        =h_k
-        this.r_cm       =r_cm
-        this.k_ena      =k_ena
-        this.r_enc      =r_enc
-        this.k_enc      =k_enc
-        this.pk_enc_cons=pk_enc_cons
-        this.pk_enc_peer=pk_enc_peer
-        this.pk_own_cons=pk_own_cons
-        this.pk_own_peer=pk_own_peer
-        this.pk_own_del =pk_own_del
+    toJson(){
+        this.ENA = this.ENA.toList()
+        this.ENA_= this.ENA_.toList()
+        return JSON.stringify(this, null, 2)
     }
-
-    /**
-     * 
-     * @param {Order} ord 
-     */
-    uploadOrder(ord) { 
-        this.pk_own_cons = ord.pk_own_cons
-        this.pk_enc_cons = ord.pk_enc_cons
-        this.r_cm        = ord.r_cm
-        this.fee_del     = ord.fee_del
-        this.fee_own     = ord.fee_own
-        this.h_k         = ord.h_k
-    }
-
-    
-    toJson() { return JSON.stringify(this, null, 2) }
 }
