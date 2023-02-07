@@ -18,7 +18,7 @@
 		3B6E8A2D298CB9B800BB4A23 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A26298CB9AF00BB4A23 /* libssl.a */; };
 		3B6E8A2E298CB9D300BB4A23 /* libgmpxx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A28298CB9B000BB4A23 /* libgmpxx.a */; };
 		3B84D118299221E5005283B5 /* libSnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA6CED92991FEDF0062EE86 /* libSnark.a */; };
-		3BA6CED82991F4840062EE86 /* crs in Resources */ = {isa = PBXBuildFile; fileRef = 3BA6CED72991F4840062EE86 /* crs */; };
+		3B84D11929922AD4005283B5 /* crs in Resources */ = {isa = PBXBuildFile; fileRef = 3BA6CED72991F4840062EE86 /* crs */; };
 		3BB244B82988EC9900EFD587 /* libPods-dataTradeApp-dataTradeAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */; };
 		3BB244BA2988EED800EFD587 /* zkSnark in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB244B92988EED800EFD587 /* zkSnark */; };
 		3BC88AAE298B59C00097527D /* LibsnarkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3666829882DA700A702E3 /* LibsnarkModule.swift */; };
@@ -301,7 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BA6CED82991F4840062EE86 /* crs in Resources */,
+				3B84D11929922AD4005283B5 /* crs in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -605,7 +605,7 @@
 				);
 				INFOPLIST_FILE = dataTradeApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = dataTradeApp;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -702,7 +702,7 @@
 				);
 				INFOPLIST_FILE = dataTradeApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = dataTradeApp;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
