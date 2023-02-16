@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Text, Icon, Button } from 'react-native-elements';
 import CustomChipButton from '../elements/chipButton';
 
-import testSnark,{testOrder} from '../core/snark/test';
+import testSnark,{ testOrder, initLibSnark } from '../core/snark/test';
 
 const InitWalletPage = ({ navigation }) => {
 
@@ -27,12 +27,19 @@ const InitWalletPage = ({ navigation }) => {
                 containerStyle={[styles.containerBt]}
                 onPress={() => {navigation.navigate('Login') }}
             />
+            <CustomChipButton 
+                title={'init Snark'}
+                containerStyle={[styles.containerBt]}
+                onPress={async () => {
+                    await initLibSnark();
+                }}
+            />
             <CustomChipButton
                 title={'snarkTest'}
                 containerStyle={[styles.containerBt]}
                 onPress={async () => {
                     await testSnark();
-                    testOrder();
+                    await testOrder();
                 }}
             />
 

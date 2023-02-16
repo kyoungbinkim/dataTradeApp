@@ -165,7 +165,8 @@ android {
         // We configure the NDK build only if you decide to opt-in for the New Architecture.
         externalNativeBuild {
             cmake {
-                path "$projectDir/src/main/jni/CMakeLists.txt"
+                // path "$projectDir/src/main/jni/CMakeLists.txt"
+                path "$projectDir/src/main/jni/Android.mk"
             }
         }
         def reactAndroidProjectDir = project(':ReactAndroid').projectDir

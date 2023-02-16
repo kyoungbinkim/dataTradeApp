@@ -10,13 +10,17 @@ import Libsnark from "./bridge/libsnark"
 import Order from "./struct/order"
 import SnarkInputs from "./struct/snarkInput";
 
-const testSnark = async () => {
-    let snarkClass = new Libsnark();
+let snarkClass = new Libsnark();
 
+export const initLibSnark = async () => {
     await snarkClass.init();
 
     await snarkClass.readVerifyKeyFromFile('/crs/');
     await snarkClass.readProofKeyFromFile('/crs/');
+
+}
+
+export const testSnark = async () => {
 
     const sampleInput = {
         "pk_enc_peer": "2302976a6bcf8ee09d653970d4e5299318efb9a68f8e0413aea0bcc8cfbbf8cc",
@@ -61,7 +65,7 @@ const testSnark = async () => {
 
 }
 
-export const testOrder = () => {
+export const testOrder = async () => {
     const h_k = math.randomFieldElement().toString(16)
 
     const consKey = UserKey.keyGen()
@@ -90,7 +94,12 @@ export const testOrder = () => {
     )
     snarkInputs.init()
     console.log(snarkInputs.toJson())
-}
+
+    const proof = await snarkClass.runProof(snarkInputs.toSnarkInput());
+    console.log(proof);
+
+    const vf = await snarkClass.runVerify(proof, snarkInputs.toSnarkInput());
+    console.log('vf:', vf);}
 
 
 
