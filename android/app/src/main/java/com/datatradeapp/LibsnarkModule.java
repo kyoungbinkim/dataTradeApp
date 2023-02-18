@@ -176,6 +176,76 @@ public class LibsnarkModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public  void createGenTradeCircuitContext(String circuitName, int serializeFormat, int ecSelection, Promise promise) {
+        int _contextId = snarkJNI.createCircuitContext(circuitName, R1CS_GG, ecSelection, "", "", "");
+
+        contextId = _contextId;
+        contextIdMap.put(circuitName, _contextId);
+
+        snarkJNI.serializeFormat(_contextId, serializeFormat);
+
+
+        AssetManager assetManager = reactApplicationContext.getResources().getAssets();
+        InputStream pkIs = null;
+        InputStream vkIs = null;
+        try {
+            pkIs = assetManager.open("crs/" + circuitName + "_crs_pk.dat");
+            vkIs = assetManager.open("crs/" + circuitName + "_crs_vk.dat");
+            long pkFileSize = pkIs.available();
+            long vkFileSize = vkIs.available();
+
+            if (pkFileSize > 0 && vkFileSize > 0) {
+
+                byte[] tempPkData = new byte[(int) pkFileSize];
+                byte[] tempVkData = new byte[(int) vkFileSize];
+
+                int pkLen = pkIs.read(tempPkData);
+                int vkLen = vkIs.read(tempVkData);
+
+                // copy CRS
+                File crsDir = new File(crsDefaultPath + "/crs");
+
+                if (!crsDir.exists()) {
+                    crsDir.mkdir();
+                }
+                File pkOutFile = new File(crsDir + "/" + circuitName + "_crs_pk.dat");
+                File vkOutFile = new File(crsDir + "/" + circuitName + "_crs_vk.dat");
+
+                if (!pkOutFile.exists() || !vkOutFile.exists()) {
+                    boolean a = pkOutFile.createNewFile();
+                    boolean b = vkOutFile.createNewFile();
+                }
+
+                FileOutputStream pkFW = new FileOutputStream(pkOutFile, false);
+                FileOutputStream vkFW = new FileOutputStream(vkOutFile, false);
+
+                while (pkLen != -1) {
+                    pkFW.write(tempPkData, 0, pkLen);
+                    pkLen = pkIs.read(tempPkData);
+                }
+                pkFW.flush();
+                pkFW.close();
+                pkIs.close();
+
+                while (vkLen != -1) {
+                    vkFW.write(tempVkData, 0, vkLen);
+                    vkLen = vkIs.read(tempVkData);
+                }
+                vkFW.flush();
+                vkFW.close();
+                vkIs.close();
+            }
+        } catch (Exception e) {
+            Log.e("Exception", String.valueOf(e));
+            promise.reject(e);
+        }
+
+        WritableMap resolveData = new WritableNativeMap();
+        resolveData.putString("circuitName", circuitName);
+        resolveData.putString("contextId", Integer.toString(_contextId));
+        promise.resolve(resolveData);
+    }
+    @ReactMethod
     public void buildCircuit(Promise promise) {
         int rtn = snarkJNI.buildCircuit(contextId);
         if (rtn != 0) {
