@@ -33,14 +33,21 @@ const InitJoinNickname = ({ navigation }) => {
                 containerStyle={[styles.containerBt, {width:'50%'}]}
                 title={'중복확인'}
                 onPress={ async () => {
-
-                    if(await joinQuery.nicknameCheck(nickname)){
-                        dispathch(setNickname(nickname))
-                        navigation.navigate('Join/addr')                    
+                    try {
+                        if(await joinQuery.nicknameCheck(nickname)){
+                            dispathch(setNickname(nickname))
+                            navigation.navigate('Join/addr')                    
+                        }
+                        else{
+                            Alert.alert('닉네임을 다시 입력하시오')
+                        }
+                    } catch (error) {
+                        console.log(error)
+                        Alert.alert(error);
+                        navigation.navigate('Join/nickname');
                     }
-                    else{
-                        Alert.alert('닉네임을 다시 입력하시오')
-                    }
+                    
+                    
                 }}
             />
         </View>
