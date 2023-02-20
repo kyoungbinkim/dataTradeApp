@@ -36,7 +36,7 @@ const InitJoinNickname = ({ navigation }) => {
                     try {
                         if(await joinQuery.nicknameCheck(nickname)){
                             dispathch(setNickname(nickname))
-                            navigation.navigate('Join/addr')                    
+                            navigation.navigate('Join/join')                    
                         }
                         else{
                             Alert.alert('닉네임을 다시 입력하시오')

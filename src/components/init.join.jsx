@@ -40,7 +40,7 @@ const InitJoinJoin = ({ navigation }) => {
             pkOwn   : _.get(keys, 'pkOwn'),
             pkEnc   : _.get(keys, 'pkEnc'),
             addr    : _.get(keys, 'ena'),
-            EOA     : address,
+            // EOA     : address,
         }
 
         httpCli.post("/usr/join/join", JoinQuery).then(res =>{
@@ -62,7 +62,7 @@ const InitJoinJoin = ({ navigation }) => {
         <View style={[styles.container]}>
             <Text style={styles.text}>nickname : {nickname}</Text>
             <Text style={styles.text}>sk_own : {sk_own}</Text>
-            <Text style={styles.text}>address : {address}</Text>
+            {/* <Text style={styles.text}>address : {address}</Text> */}
             <CustomChipButton
                 containerStyle={styles.containerBt}
                 title={'Join'}
