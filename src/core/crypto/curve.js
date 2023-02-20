@@ -1,5 +1,4 @@
 import math from '../utils/math.js';
-// import Config from 'react-native-config';
 import Config from '../utils/config.js';
 import CurveParam from './curveParam.js';
 /* global BigInt */

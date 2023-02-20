@@ -4,8 +4,13 @@
  *
  * @format
  */
+const extraNodeModules = require('node-libs-browser');
 
 module.exports = {
+  // resolver: {
+  //   sourceExts: ['jsx', 'js', 'ts', 'tsx', 'json'],
+  //   extraNodeModules,
+  // },
   transformer: {
     getTransformOptions: async () => ({
       transform: {
