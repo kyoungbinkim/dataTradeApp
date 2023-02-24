@@ -9,6 +9,8 @@ import PublicKey from './struct/pk';
 import Libsnark from "./bridge/libsnark"
 import Order from "./struct/order"
 import SnarkInputs from "./struct/snarkInput";
+import { initTradeContract, getTradeContract } from '../web3';
+import { proofFlat } from '../web3/utils';
 
 let snarkClass = new Libsnark();
 
@@ -100,9 +102,27 @@ export const testOrder = async () => {
 
   const vf = await snarkClass.runVerify(proof, snarkInputs.toSnarkInput());
   console.log('vf:', vf);
-  
 
-  snarkInputs.toContractInput();
+
+  
+  try {
+    const contractInputs = snarkInputs.toContractInput();
+    console.log('contract input', contractInputs)
+    console.log('hi')
+    await initTradeContract();
+    console.log(contractInputs, contractInputs.length, proofFlat(JSON.parse(proof)))
+    const receipt = await getTradeContract().genTrade(
+      proofFlat(JSON.parse(proof)),
+      contractInputs,
+      '0xE8907EB93E245367Ba75537a8B47821a29277c34',
+      '0xee2643a5d779205447f06ab0898ee8fbf4e7919ae1c66aab763ee2d2b5eca585'
+    )
+    console.log('hi')
+    console.log(receipt)
+  } catch (error) {
+    console.log(error)
+  }
+
 }
 
 

@@ -104,9 +104,8 @@ export default class SnarkInputs{
     }
 
     toContractInput(){
-        
-
         let contractInputs = [
+            "1",
             this.g_r, 
             this.c1,
             this.cm_own,
@@ -117,7 +116,6 @@ export default class SnarkInputs{
         contractInputs = _.union(contractInputs, [this.fee_del, this.fee_own])
         contractInputs = _.union(contractInputs, this.CT_cons)
 
-        console.log(contractInputs);
         for(let i=0; i<contractInputs.length; i++){
             contractInputs[i] = hexStrToDec(contractInputs[i])
         }

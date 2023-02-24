@@ -1,7 +1,7 @@
 /* global BigInt */
 import Config, {contractsBuildPath, crsPath, fileStorePath} from "../utils/config.js";
 import Web3 from 'web3';
-import fs from 'fs';
+import fs from 'react-native-fs';
 
 export async function getAllAddr() {
     return ( await web3Ins.eth.getAccounts() );

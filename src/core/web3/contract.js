@@ -2,7 +2,6 @@ import Web3Interface from "./web3interface.js";
 import Web3 from "web3";
 import Config, { contractsBuildPath, fileStorePath } from "../utils/config";
 import _ from 'lodash'
-import fs from 'fs'
 import ContractJson from './abi'
 
 // export const ContractJson    = JSON.parse(fs.readFileSync(contractsBuildPath+'dataTradeContract.json', 'utf-8'))
@@ -11,7 +10,7 @@ export default class contract extends Web3Interface {
 
     constructor(endPoint, contractAddr){
         super(endPoint);
-        this.instance = new this.eth.Contract(ContractJson.abi, contractAddr);
+        this.instance = new this.eth.Contract(JSON.parse(JSON.stringify(ContractJson['abi'])), contractAddr);
         this.contractMethod = this.instance.methods;
         this.contractAddress = contractAddr;
     }
@@ -84,14 +83,23 @@ export default class contract extends Web3Interface {
         userEthAddress    = _.get(Config, 'ethAddr'),
         userEthPrivateKey = _.get(Config, 'privKey'),
     ) {
-        if (proof.length != 8) {
+        if (typeof proof !== 'object' || proof.length != 8) {
             console.log('invalid proof length');
             return false;
         }
+        
         if (inputs.length != 17) {
-            console.log('invalid inputs length');
+            console.log('invalid inputs length', inputs.length);
             return false;
         }
+        const gas = await this.contractMethod.orderData(proof,inputs).estimateGas();
+
+        return this.sendContractCall(
+            this.contractMethod.orderData(proof,inputs),
+            userEthAddress,
+            userEthPrivateKey,
+            gas
+        )
     }
 }
 

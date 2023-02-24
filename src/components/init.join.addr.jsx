@@ -8,18 +8,14 @@ import {
     StatusBar,
     ActivityIndicator
 } from 'react-native';
-import Clipboard from '@react-native-clipboard/clipboard';
-import { NavigationContainer } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
-
 import 'react-native-get-random-values'
 import '@ethersproject/shims';
 import { ethers } from 'ethers';
 
 import CustomChipButton from '../elements/chipButton';
 import InputBox from '../elements/inputBox';
-import progressModal from '../elements/progressModal';
-import { selectNickname, setNickname, setSkOwn, setAddr } from '../store/joinSlice';
+import {  setAddr } from '../store/joinSlice';
 
 import joinQuery from '../core/http/joinQuery.js';
 
