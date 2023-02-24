@@ -30,7 +30,9 @@
     "react-native-screens": "^3.19.0",
     "react-native-table-component": "^1.2.2",
     "react-native-vector-icons": "^9.2.0",
-    "react-redux": "^8.0.5"
+    "react-redux": "^8.0.5",
+    "web3": "^1.8.2",
+    "web3-eth-contract": "^1.8.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

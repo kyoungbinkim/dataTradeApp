@@ -1,8 +1,10 @@
 /* global BigInt */
 
+import _ from 'lodash'
 import types from '../../utils/types'
 import mimc from '../../crypto/mimc'
 
+import { hexStrToDec } from '../../utils/types'
 import Encryption, { sCT } from '../../crypto/encryption'
 import PublicKey from './pk'
 import CoinCommitment from './cm'
@@ -100,4 +102,28 @@ export default class SnarkInputs{
         json.ENA_= this.ENA_.toList()
         return JSON.stringify(json, null, 2)
     }
+
+    toContractInput(){
+        
+
+        let contractInputs = [
+            this.g_r, 
+            this.c1,
+            this.cm_own,
+            this.cm_del,
+        ]
+        contractInputs = _.union(contractInputs, this.ENA.toList())
+        contractInputs = _.union(contractInputs, this.ENA_.toList())
+        contractInputs = _.union(contractInputs, [this.fee_del, this.fee_own])
+        contractInputs = _.union(contractInputs, this.CT_cons)
+
+        console.log(contractInputs);
+        for(let i=0; i<contractInputs.length; i++){
+            contractInputs[i] = hexStrToDec(contractInputs[i])
+        }
+        console.log(contractInputs)
+        return contractInputs;
+    }
 }
+
+
