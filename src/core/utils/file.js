@@ -1,6 +1,6 @@
 /* global BigInt */
 import fs from 'fs';
-import config from './config.js';
+import Config from 'react-native-config'
 import CurveParam from '../crypto/curveParam.js';
 import Encryption from '../crypto/encryption.js';
 import mimc from '../crypto/mimc.js';
@@ -18,10 +18,10 @@ class peerEncData{
     uploadDataFromPath(dataPath){
         const RawData = readRawFile(dataPath);
         const dataLen = RawData.length;
-        const dataBlockBytes = parseInt(CurveParam(config.EC_TYPE).primeLen / 8);
+        const dataBlockBytes = parseInt(CurveParam(Config.EC_TYPE).primeLen / 8);
         const dataBlockNum =  parseInt(dataLen/dataBlockBytes)+ 1;
         let pad = (( dataBlockNum * dataBlockBytes - dataLen )).toString(16).padStart(2,'0');
-        for(let i=0; i<config.dataMaxBlockNum; i++){
+        for(let i=0; i<Config.DATA_BLOCK_NUM; i++){
             if(i<dataBlockNum){
                 let tmp = rawFileToBigIntString(RawData.slice(i*dataBlockBytes, (i+1)*dataBlockBytes)).padEnd(dataBlockBytes*2, pad);
                 this.data.push(tmp);
@@ -36,7 +36,7 @@ class peerEncData{
 
     uploadDataFromHexDataString(HexDataString){
         const strLen = HexDataString.length;
-        const strBlockBytes = parseInt(CurveParam(config.EC_TYPE).primeLen / 8);
+        const strBlockBytes = parseInt(CurveParam(Config.EC_TYPE).primeLen / 8);
         const strBlockNum = parseInt(strLen/strBlockBytes)+ 1;
         let pad = (( strBlockNum * strBlockBytes - strLen )).toString(16).padStart(2,'0');
         for(let i=0; i<strBlockNum; i++){
@@ -54,15 +54,15 @@ class peerEncData{
     encryptData(){
         const mimc7  = new mimc.MiMC7();
         const symEnc = new Encryption.symmetricKeyEncryption(this.dataEncKey);
-        const strBlockBytes = parseInt(CurveParam(config.EC_TYPE).primeLen / 8);
+        const strBlockBytes = parseInt(CurveParam(Config.EC_TYPE).primeLen / 8);
         const CTdata = symEnc.EncData(this.data);
         this.CT_data = CTdata.ct;
         this.CT_r    = CTdata.r;
-        for(let i=0 ; i<config.dataMaxBlockNum; i++){
+        for(let i=0 ; i<Config.DATA_BLOCK_NUM; i++){
             mimc7.hashUpdate(this.CT_data[i]);
         }
         this.h_ct    = mimc7.hashGetOuptut();
-        for(let i=0 ; i<config.dataMaxBlockNum; i++){
+        for(let i=0 ; i<Config.DATA_BLOCK_NUM; i++){
             this.CT_data[i].padStart(strBlockBytes*2, '0');
             mimc7.hashUpdate(this.data[i]);
         }
@@ -75,9 +75,9 @@ class peerEncData{
 
 
 function BigIntArrToBuffer(BigIntDataArr){
-    const strBlockBytes = parseInt(CurveParam(config.EC_TYPE).primeLen / 8);
+    const strBlockBytes = parseInt(CurveParam(Config.EC_TYPE).primeLen / 8);
     let strTmp ='';
-    for(let i=0; i<config.dataMaxBlockNum; i++){
+    for(let i=0; i<Config.DATA_BLOCK_NUM; i++){
         if(BigIntDataArr[i]=== '0') break;
         strTmp += BigIntDataArr[i].padStart(strBlockBytes*2, '0');
     }

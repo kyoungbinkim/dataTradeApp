@@ -19,6 +19,7 @@
 		3B6E8A2E298CB9D300BB4A23 /* libgmpxx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A28298CB9B000BB4A23 /* libgmpxx.a */; };
 		3B84D118299221E5005283B5 /* libSnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA6CED92991FEDF0062EE86 /* libSnark.a */; };
 		3B84D11929922AD4005283B5 /* crs in Resources */ = {isa = PBXBuildFile; fileRef = 3BA6CED72991F4840062EE86 /* crs */; };
+		3BAB490829ACBAE90067FF4F /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3BAB490729ACBAE90067FF4F /* Config.xcconfig */; };
 		3BB244B82988EC9900EFD587 /* libPods-dataTradeApp-dataTradeAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */; };
 		3BB244BA2988EED800EFD587 /* zkSnark in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB244B92988EED800EFD587 /* zkSnark */; };
 		3BC88AAE298B59C00097527D /* LibsnarkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3666829882DA700A702E3 /* LibsnarkModule.swift */; };
@@ -34,6 +35,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = dataTradeApp;
+		};
+		3BAB48F529AC6E920067FF4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BAB48F029AC6E920067FF4F /* ReactNativeConfig.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB2648DF1C7BE17A00B8F155;
+			remoteInfo = ReactNativeConfig;
+		};
+		3BAB48F729AC6E920067FF4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BAB48F029AC6E920067FF4F /* ReactNativeConfig.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3DF7F6AC203AA09B00D0EAB7;
+			remoteInfo = "ReactNativeConfig-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -58,6 +73,8 @@
 		3BA6CED72991F4840062EE86 /* crs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = crs; sourceTree = "<group>"; };
 		3BA6CED92991FEDF0062EE86 /* libSnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSnark.a; path = native_libs/lib/sim/libSnark.a; sourceTree = "<group>"; };
 		3BA6CEDC2992017E0062EE86 /* Packages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Packages; sourceTree = "<group>"; };
+		3BAB48F029AC6E920067FF4F /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeConfig.xcodeproj; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; };
+		3BAB490729ACBAE90067FF4F /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		3BB244932988CC3300EFD587 /* LibsnarkModule-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LibsnarkModule-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BE3665829882AA500A702E3 /* libsnark_module */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = libsnark_module; sourceTree = "<group>"; };
 		3BE3666829882DA700A702E3 /* LibsnarkModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibsnarkModule.swift; sourceTree = "<group>"; };
@@ -119,6 +136,7 @@
 		13B07FAE1A68108700A75B9A /* dataTradeApp */ = {
 			isa = PBXGroup;
 			children = (
+				3BAB48EF29AC6AF60067FF4F /* www */,
 				3BE366722988AEE900A702E3 /* LibsnarkModule.h */,
 				3BE3666A29882DD200A702E3 /* LibsnarkModule.m */,
 				3BE3666829882DA700A702E3 /* LibsnarkModule.swift */,
@@ -152,6 +170,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3BAB48EF29AC6AF60067FF4F /* www */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = www;
+			sourceTree = "<group>";
+		};
+		3BAB48F129AC6E920067FF4F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3BAB48F629AC6E920067FF4F /* libRNCConfig.a */,
+				3BAB48F829AC6E920067FF4F /* libRNCConfig-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3BE3666629882D3A00A702E3 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +197,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				3BAB48F029AC6E920067FF4F /* ReactNativeConfig.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -170,6 +205,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				3BAB490729ACBAE90067FF4F /* Config.xcconfig */,
 				3BA6CED72991F4840062EE86 /* crs */,
 				3BE3666629882D3A00A702E3 /* Packages */,
 				13B07FAE1A68108700A75B9A /* dataTradeApp */,
@@ -281,6 +317,12 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3BAB48F129AC6E920067FF4F /* Products */;
+					ProjectRef = 3BAB48F029AC6E920067FF4F /* ReactNativeConfig.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* dataTradeApp */,
@@ -288,6 +330,25 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3BAB48F629AC6E920067FF4F /* libRNCConfig.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			name = libRNCConfig.a;
+			path = libReactNativeConfig.a;
+			remoteRef = 3BAB48F529AC6E920067FF4F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3BAB48F829AC6E920067FF4F /* libRNCConfig-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			name = "libRNCConfig-tvOS.a";
+			path = "libReactNativeConfig-tvOS.a";
+			remoteRef = 3BAB48F729AC6E920067FF4F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
@@ -301,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BAB490829ACBAE90067FF4F /* Config.xcconfig in Resources */,
 				3B84D11929922AD4005283B5 /* crs in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
@@ -602,6 +664,7 @@
 					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
 					"\"$(PODS_TARGET_SRCROOT)/include/\"",
 					"\"${PODS_ROOT}/Headers/Public/React\"/**",
+					"\"$(SRCROOT)/../node_modules/react-native-config/ios/**\"",
 				);
 				INFOPLIST_FILE = dataTradeApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = dataTradeApp;
@@ -738,6 +801,7 @@
 		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BAB490729ACBAE90067FF4F /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -811,6 +875,7 @@
 		};
 		83CBBA211A601CBA00E9B192 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BAB490729ACBAE90067FF4F /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

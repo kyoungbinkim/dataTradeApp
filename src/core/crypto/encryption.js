@@ -5,8 +5,8 @@ import math from '../utils/math.js';
 import mimc from './mimc.js';
 import types from '../utils/types.js';
 import constants from '../utils/constants.js';
-// import Config from 'react-native-config';
-import Config from '../utils/config.js'
+import Config from 'react-native-config';
+// import Config from '../utils/config.js'
 import CurveParam from './curveParam.js';
 
 class sCT {
@@ -44,7 +44,7 @@ class sCTdata {
     constructor(r, ct){
         this.r  = r;
         this.ct = ct;
-        this.blockNum = Number(Config.dataMaxBlockNum);
+        this.blockNum = Number(Config.DATA_BLOCK_NUM);
     }
 
     toJson() { return JSON.stringify(this); }
@@ -77,7 +77,7 @@ class symmetricKeyEncryption{
         let cvParam = CurveParam(Config.EC_TYPE);
         this.prime = cvParam.prime;
         this.privKey = privKey;
-        this.dataMaxBlockNum = Number(Config.dataMaxBlockNum);
+        this.dataMaxBlockNum = Number(Config.DATA_BLOCK_NUM);
     }
 
     /**

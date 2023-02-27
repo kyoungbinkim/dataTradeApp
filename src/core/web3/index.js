@@ -2,16 +2,16 @@ import _ from 'lodash';
 import contract from "./contract.js";
 import httpCli from '../http/http.js';
 import { Platform } from 'react-native';
+import Config from 'react-native-config';
 
 export let tradeContract = undefined
 export let isInit = false
 
-const androidURL  = 'http://10.0.2.2:7545';
-const iosURL      = 'http://127.0.0.1:7545';
-
-const rpcURL = Platform.OS === 'ios' ? iosURL : androidURL;
+const rpcURL = Platform.OS === 'ios' ? Config.IOS_GANACHE_PROVIDER : Config.ANDROID_GANACHE_PROVIDER;
 
 export const initTradeContract = async () => {
+    console.log('ganache : ', Config.ANDROID_GANACHE_PROVIDER, Config.IOS_GANACHE_PROVIDER)
+    console.log('http : ',Config.IOS_HTTP_URL )
     let contractAddr = undefined
     if(isInit) return;
     try {

@@ -114,8 +114,8 @@ export const testOrder = async () => {
     const receipt = await getTradeContract().genTrade(
       proofFlat(JSON.parse(proof)),
       contractInputs,
-      '0xE8907EB93E245367Ba75537a8B47821a29277c34',
-      '0xee2643a5d779205447f06ab0898ee8fbf4e7919ae1c66aab763ee2d2b5eca585'
+      '0xc1E60692104A350d92C7C691B0c2098Ee87ca11b',
+      '0xe3a4a65f208b1c2b709651180db33fc47895225887ee3f55acd41657111da250'
     )
     console.log('hi')
     console.log(receipt)
