@@ -10644,6 +10644,11 @@
     "tmp" "^0.0.33"
     "yaml" "^1.10.2"
 
+"path-browserify@^0.0.0":
+  "integrity" "sha512-WA3pxi1olUQcsl82W576vkqhUSGp0uBtr/381pxx5WXLp3NC+AB99hUG3aGW7H0Kg9PFr1D8wv1iJeICe+9Mhw=="
+  "resolved" "https://registry.npmjs.org/path-browserify/-/path-browserify-0.0.0.tgz"
+  "version" "0.0.0"
+
 "path-exists@^3.0.0":
   "integrity" "sha512-bpC7GYwiDYQ4wYLe+FA8lhRjhQCMcQGuSgGGqDkg/QerRWw9CmGRT0iSOVRSZJ29NMLZgIzqaljJ63oaL4NIJQ=="
   "resolved" "https://registry.npmjs.org/path-exists/-/path-exists-3.0.0.tgz"

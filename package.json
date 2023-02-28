@@ -22,6 +22,7 @@
     "ethers": "^5.7.2",
     "expo-cli": "^6.1.0",
     "patch-package": "^6.5.1",
+    "path-browserify": "^0.0.0",
     "react": "18.1.0",
     "react-native": "0.70.6",
     "react-native-config": "^1.5.0",
@@ -66,7 +67,8 @@
     "_stream_writable": "readable-stream/writable",
     "_stream_duplex": "readable-stream/duplex",
     "_stream_passthrough": "readable-stream/passthrough",
-    "stream": "stream-browserify"
+    "stream": "stream-browserify",
+    "path": "path-browserify"
   },
   "browser": {
     "crypto": "react-native-crypto",
@@ -76,6 +78,7 @@
     "_stream_writable": "readable-stream/writable",
     "_stream_duplex": "readable-stream/duplex",
     "_stream_passthrough": "readable-stream/passthrough",
-    "stream": "stream-browserify"
+    "stream": "stream-browserify",
+    "path": "path-browserify"
   }
 }

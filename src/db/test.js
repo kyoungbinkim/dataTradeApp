@@ -22,7 +22,7 @@ export const DBtest = async () => {
 
 export const createTableTEST = async () => {
     try {
-        await createTable()
+        console.log(await createTable())
     } catch (error) {
         console.log(error);
     }

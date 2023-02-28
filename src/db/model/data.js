@@ -2,7 +2,7 @@ import SQLiteManager from "../db";
 
 export class dataModel extends SQLiteManager {
 
-    async createTable(){
+    async createModelTable(){
         try {
             await super.createTable('data',[
                 {

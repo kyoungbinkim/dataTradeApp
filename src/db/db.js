@@ -1,10 +1,11 @@
 import SQLite from 'react-native-sqlite-storage';
 
-
 const db = SQLite.openDatabase(
     {
-        name: 'dataTrade',
+        name: 'dataTrade.db',
         location: 'default',
+        createFromLocation: '~www/dataTrade.db',
+        androidDatabaseProvider: 'system',
     },
     () => {
         console.log('Open Database Successed')

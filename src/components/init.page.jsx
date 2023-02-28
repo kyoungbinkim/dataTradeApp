@@ -3,8 +3,9 @@ import { StyleSheet, View } from 'react-native';
 import { Text, Icon, Button } from 'react-native-elements';
 import CustomChipButton from '../elements/chipButton';
 
+// import SQLite from 'react-native-sqlite-storage'
 import testSnark,{ testOrder, initLibSnark } from '../core/snark/test';
-import { DBtest, dropTableTEST, createTableTEST } from '../db/test';
+import { DBtest, dropTableTEST, createTableTEST, initTEST } from '../db/test';
 
 const InitWalletPage = ({ navigation }) => {
 
@@ -47,9 +48,23 @@ const InitWalletPage = ({ navigation }) => {
                 title={'DB Test'}
                 containerStyle={[styles.containerBt]}
                 onPress={async () => {
-                    // await createTableTEST();
                     // await dropTableTEST();
+                    // await createTableTEST();
                     await DBtest();
+                }}
+            />
+            <CustomChipButton
+                title={'drop DB'}
+                containerStyle={[styles.containerBt]}
+                onPress={async () => {
+                    await dropTableTEST();
+                }}
+            />
+            <CustomChipButton
+                title={'create DB'}
+                containerStyle={[styles.containerBt]}
+                onPress={async () => {
+                    await createTableTEST();
                 }}
             />
 
