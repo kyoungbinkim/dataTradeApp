@@ -4,6 +4,7 @@ import { Text, Icon, Button } from 'react-native-elements';
 import CustomChipButton from '../elements/chipButton';
 
 import testSnark,{ testOrder, initLibSnark } from '../core/snark/test';
+import { DBtest, dropTableTEST, createTableTEST } from '../db/test';
 
 const InitWalletPage = ({ navigation }) => {
 
@@ -40,6 +41,15 @@ const InitWalletPage = ({ navigation }) => {
                 onPress={async () => {
                     await testSnark();
                     await testOrder();
+                }}
+            />
+            <CustomChipButton
+                title={'DB Test'}
+                containerStyle={[styles.containerBt]}
+                onPress={async () => {
+                    // await createTableTEST();
+                    // await dropTableTEST();
+                    await DBtest();
                 }}
             />
 

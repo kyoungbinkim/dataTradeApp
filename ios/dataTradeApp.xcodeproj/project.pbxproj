@@ -12,6 +12,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		3B5FFCEC29AD8EC2006D1A1D /* www in Resources */ = {isa = PBXBuildFile; fileRef = 3B5FFCEB29AD8EC2006D1A1D /* www */; };
 		3B6E8A29298CB9B700BB4A23 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A27298CB9AF00BB4A23 /* libcrypto.a */; };
 		3B6E8A2A298CB9B800BB4A23 /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A25298CB9AF00BB4A23 /* libgmp.a */; };
 		3B6E8A2C298CB9B800BB4A23 /* libomp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6E8A24298CB9AF00BB4A23 /* libomp.a */; };
@@ -64,6 +65,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = dataTradeApp/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dataTradeApp-dataTradeAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-dataTradeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dataTradeApp.debug.xcconfig"; path = "Target Support Files/Pods-dataTradeApp/Pods-dataTradeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		3B5FFCEB29AD8EC2006D1A1D /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = dataTradeApp/www; sourceTree = "<group>"; };
 		3B6E8A21298CB77B00BB4A23 /* libSnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSnark.a; path = native_libs/simulator_release/libSnark.a; sourceTree = "<group>"; };
 		3B6E8A24298CB9AF00BB4A23 /* libomp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libomp.a; path = native_libs/iphonesimulator_depend_libs/libomp.a; sourceTree = "<group>"; };
 		3B6E8A25298CB9AF00BB4A23 /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmp.a; path = native_libs/iphonesimulator_depend_libs/libgmp.a; sourceTree = "<group>"; };
@@ -136,7 +138,7 @@
 		13B07FAE1A68108700A75B9A /* dataTradeApp */ = {
 			isa = PBXGroup;
 			children = (
-				3BAB48EF29AC6AF60067FF4F /* www */,
+				3B5FFCEB29AD8EC2006D1A1D /* www */,
 				3BE366722988AEE900A702E3 /* LibsnarkModule.h */,
 				3BE3666A29882DD200A702E3 /* LibsnarkModule.m */,
 				3BE3666829882DA700A702E3 /* LibsnarkModule.swift */,
@@ -168,13 +170,6 @@
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-dataTradeApp-dataTradeAppTests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3BAB48EF29AC6AF60067FF4F /* www */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = www;
 			sourceTree = "<group>";
 		};
 		3BAB48F129AC6E920067FF4F /* Products */ = {
@@ -365,6 +360,7 @@
 				3BAB490829ACBAE90067FF4F /* Config.xcconfig in Resources */,
 				3B84D11929922AD4005283B5 /* crs in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				3B5FFCEC29AD8EC2006D1A1D /* www in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
