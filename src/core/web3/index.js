@@ -13,9 +13,9 @@ export const initTradeContract = async () => {
     console.log('ganache : ', Config.ANDROID_GANACHE_PROVIDER, Config.IOS_GANACHE_PROVIDER)
     console.log('http : ',Config.IOS_HTTP_URL )
     let contractAddr = undefined
-    if(isInit) return;
+    // if(isInit) return;
     try {
-        if(isInit) return;
+        // if(isInit) return;
         console.log('start init TradeContract')
         const contractInfo = await httpCli.get('/contract/getAddr')
 

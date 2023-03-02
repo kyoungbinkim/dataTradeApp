@@ -11,6 +11,8 @@ import Order from "./struct/order"
 import SnarkInputs from "./struct/snarkInput";
 import { initTradeContract, getTradeContract } from '../web3';
 import { proofFlat } from '../web3/utils';
+import { getServerKeys } from '../http/serverQuery';
+
 
 let snarkClass = new Libsnark();
 
@@ -76,7 +78,14 @@ export const testOrder = async () => {
 
   const pubkey_peer = PublicKey.fromUserKey(peerKey, type = 'peer')
   const pubkey_cons = PublicKey.fromUserKey(consKey, type = 'cons')
-  const pubkey_del = PublicKey.fromUserKey(delKey, type = 'del')
+  // const pubkey_del = PublicKey.fromUserKey(delKey, type = 'del')
+
+  const delKeys = await getServerKeys();
+  const pubkey_del = new PublicKey(
+    _.get(delKeys, "pk_own"),
+    _.get(delKeys, "pk_enc"), 
+    type = 'del'
+  )
 
   const symEnc = new Encryption.symmetricKeyEncryption(consKey.skEnc)
 
@@ -108,16 +117,14 @@ export const testOrder = async () => {
   try {
     const contractInputs = snarkInputs.toContractInput();
     console.log('contract input', contractInputs)
-    console.log('hi')
+
     await initTradeContract();
-    console.log(contractInputs, contractInputs.length, proofFlat(JSON.parse(proof)))
     const receipt = await getTradeContract().genTrade(
       proofFlat(JSON.parse(proof)),
       contractInputs,
-      '0xc1E60692104A350d92C7C691B0c2098Ee87ca11b',
-      '0xe3a4a65f208b1c2b709651180db33fc47895225887ee3f55acd41657111da250'
+      '0xfe030C290415a37FEc953632A87ae5ae34adCe9E',
+      '0xb9c10da67f23ade91b1ce650c01851dc280507545b6b1954628cf73b8fee6766'
     )
-    console.log('hi')
     console.log(receipt)
   } catch (error) {
     console.log(error)
@@ -125,6 +132,8 @@ export const testOrder = async () => {
 
 }
 
-
+const readPk = (idx) => {
+   
+}
 
 export default testSnark;

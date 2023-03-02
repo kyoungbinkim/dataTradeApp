@@ -220,7 +220,6 @@ class publicKeyEncryption {
      * 
      * @param {pCT}         pct         The cihpertext of public key encryption 
      * @param {string}      privKey     The user's private key or auditor's private key | hexadecimal string
-     * @param {boolean}     audit       Whether or not to audit, 'true' is used by the auditor, and 'false' is used by the user.
      * @returns 
      */
     Dec(pct, privKey ) {
