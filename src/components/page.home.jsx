@@ -21,14 +21,21 @@ import InputBox from '../elements/inputBox';
 import TableElement from '../elements/table';
 
 import { getDataListQuery } from '../core/http/dataQuery';
-import { selectData, setData } from '../store/infoSlice';
+import { selectData, selectKey, setData, setSkOwn } from '../store/infoSlice';
+import { getUserKeys } from '../core/http/serverQuery';
+import { selectServerPublicKey } from '../store/serverInfoSlice';
 
 const PageHome = ({navigation}) => {
     const dispatch = useDispatch();
-    const dataList =useSelector(selectData);
-    console.log(dataList);
+    const serverPk = useSelector(selectServerPublicKey);
+    const userKey  = useSelector(selectKey)
+    const dataList = useSelector(selectData);
+    const {serverPublicKey} = useSelector(state => state.server);
+    // const {publicKey} = useSelector(state => state.server)
+    console.log(dataList, serverPublicKey, userKey);
     const [vis, setVis] = useState(false);
     const [dis, setDis] = useState('');
+    const [nck, setNck] = useState('');
 
     useEffect(
         () => {() => {}}
@@ -43,6 +50,14 @@ const PageHome = ({navigation}) => {
                 <Text style={styles.text}>{dis}</Text>
                 <CustomChipButton
                     containerStyle={styles.containerBt}
+                    onPress={async ()=> {
+                        // const userKey = await getUserKeys(nck);
+                        console.log("hi", userKey.toJson(), serverPk.toJson())
+                    }}
+                    title={'Buy📚'}
+                />
+                <CustomChipButton
+                    containerStyle={styles.containerBt}
                     onPress={()=>{setVis(false)}}
                     title={'close'}
                 />
@@ -54,6 +69,7 @@ const PageHome = ({navigation}) => {
         <TouchableOpacity 
             onPress={() => { 
                 setDis(dataList[ind]['descript']);
+                setNck(dataList[ind]['owner_nickname']);
                 setVis(true);
             }}
             style={{alignItems:'center'}}

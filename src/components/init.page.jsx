@@ -5,9 +5,14 @@ import CustomChipButton from '../elements/chipButton';
 
 // import SQLite from 'react-native-sqlite-storage'
 import testSnark,{ testOrder, initLibSnark } from '../core/snark/test';
-import { DBtest, dropTableTEST, createTableTEST, initTEST } from '../db/test';
+import { DBtest, dropTableTEST, createTableTEST } from '../db/test';
+import { getUserKeys } from '../core/http/serverQuery';
+import { selectServerPublicKey } from '../store/serverInfoSlice';
+import { useSelector } from 'react-redux';
 
 const InitWalletPage = ({ navigation }) => {
+
+    const {serverPublicKey} = useSelector(state => state.server)
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -65,6 +70,14 @@ const InitWalletPage = ({ navigation }) => {
                 containerStyle={[styles.containerBt]}
                 onPress={async () => {
                     await createTableTEST();
+                }}
+            />
+            <CustomChipButton
+                title={'get key TEST'}
+                containerStyle={styles.containerBt}
+                onPress= {async () => {
+                    const ret = await getUserKeys('침착맨')
+                    console.log(ret,serverPublicKey)
                 }}
             />
 

@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { Text, Button } from 'react-native-elements';
 import { 
     View,
     StyleSheet,
-    Platform, 
-    SafeAreaView, 
-    StatusBar, 
     Alert} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import CustomChipButton from '../elements/chipButton';
 import InputBox from '../elements/inputBox';
 
+import PublicKey from '../core/snark/struct/pk';
+import UserKey from '../core/wallet/keyStruct';
 import { loginQuery } from '../core/http/loginQuery';
 import { setLogin } from '../store/initSlice';
-import { setData } from '../store/infoSlice';
+import { setData, setKey, setPublicKey } from '../store/infoSlice';
 import { getDataListQuery } from '../core/http/dataQuery';
+
 
 const InitLogin = ({ navigation }) => {
     const dispatch = useDispatch();
@@ -40,6 +38,10 @@ const InitLogin = ({ navigation }) => {
                         dispatch(setLogin())
                         const data = await getDataListQuery();
                         dispatch(setData(data));
+
+                        const usrkey = UserKey.recoverFromUserSk(localSk);
+                        dispatch(setKey(usrkey));
+                        dispatch(setPublicKey(PublicKey.fromUserKey(usrkey)));
                     }
                     else{
                         Alert.alert('올바르지 않습니다.')
