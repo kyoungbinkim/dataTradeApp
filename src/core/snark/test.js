@@ -81,7 +81,7 @@ export const testOrder = async () => {
   // const pubkey_del = PublicKey.fromUserKey(delKey, type = 'del')
 
   const delKeys = await getServerKeys();
-  console.log('key : ', delKeys); return;
+  console.log('key : ', delKeys);
   const pubkey_del = new PublicKey(
     _.get(delKeys, "pk_own"),
     _.get(delKeys, "pk_enc"), 

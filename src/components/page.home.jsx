@@ -27,12 +27,11 @@ import { selectServerPublicKey } from '../store/serverInfoSlice';
 
 const PageHome = ({navigation}) => {
     const dispatch = useDispatch();
-    const serverPk = useSelector(selectServerPublicKey);
-    const userKey  = useSelector(selectKey)
+    
     const dataList = useSelector(selectData);
-    const {serverPublicKey} = useSelector(state => state.server);
+    
     // const {publicKey} = useSelector(state => state.server)
-    console.log(dataList, serverPublicKey, userKey);
+    // console.log(dataList, serverPublicKey, userKey);
     const [vis, setVis] = useState(false);
     const [dis, setDis] = useState('');
     const [nck, setNck] = useState('');
@@ -51,8 +50,9 @@ const PageHome = ({navigation}) => {
                 <CustomChipButton
                     containerStyle={styles.containerBt}
                     onPress={async ()=> {
-                        // const userKey = await getUserKeys(nck);
-                        console.log("hi", userKey.toJson(), serverPk.toJson())
+                        // // const userKey = await getUserKeys(nck);
+                        // console.log("hi", serverPublicKey)
+                        // console.log('my KEY : ', key);
                     }}
                     title={'Buy📚'}
                 />

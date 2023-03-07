@@ -1,4 +1,4 @@
-import dataModel from "./model/data";
+import dataModel from "./model/dataModel";
 
 export const DataTradeDB = new dataModel();
 

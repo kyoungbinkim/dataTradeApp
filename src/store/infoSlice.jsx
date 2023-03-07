@@ -19,7 +19,7 @@ const infoSlice = createSlice({
             state.key = action.payload;
         },
         setPublicKey(state, action ){
-            state.key = action.payload;
+            state.publicKey = action.payload;
         },
         setSkOwn(state, action) {
             state.skOwn = action.payload;
