@@ -30,8 +30,6 @@ const PageHome = ({navigation}) => {
     
     const dataList = useSelector(selectData);
     
-    // const {publicKey} = useSelector(state => state.server)
-    // console.log(dataList, serverPublicKey, userKey);
     const [vis, setVis] = useState(false);
     const [dis, setDis] = useState('');
     const [nck, setNck] = useState('');

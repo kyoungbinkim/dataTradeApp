@@ -2,9 +2,11 @@ import SQLiteManager from "../db";
 
 
 export class serverModel extends SQLiteManager {
+    tableFlag = false;
     initFlag = false;
 
     async createModelTable(){
+        if(this.tableFlag) {return ;}
         try {
             await super.createTable('server',[
                 {
@@ -18,6 +20,7 @@ export class serverModel extends SQLiteManager {
                     isNotNull : true
                 },
             ])
+            this.tableFlag = true;
         } catch (error) {
             console.log(error);
             throw error;
@@ -38,6 +41,7 @@ export class serverModel extends SQLiteManager {
                 }
             )
             this.initFlag =true;
+            console.log('server DB init success')
         } catch (error) {
             console.log(error);
             throw error;
@@ -45,6 +49,18 @@ export class serverModel extends SQLiteManager {
         
     }
     
+    async get(){
+        if(!this.initFlag) return undefined;
+        try {
+            const [ret] = await super.select(
+                'server'
+            )
+            return ret;
+        } catch (error) {
+            console.log(error)
+            throw error
+        }
+    }
 
 }
 

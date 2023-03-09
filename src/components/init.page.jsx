@@ -9,6 +9,7 @@ import { DBtest, dropTableTEST, createTableTEST } from '../db/test';
 import { getUserKeys } from '../core/http/serverQuery';
 import { selectServerPublicKey } from '../store/serverInfoSlice';
 import { useSelector } from 'react-redux';
+import { getServerKey } from '../db';
 
 const InitWalletPage = ({ navigation }) => {
 
@@ -73,11 +74,11 @@ const InitWalletPage = ({ navigation }) => {
                 }}
             />
             <CustomChipButton
-                title={'get key TEST'}
+                title={'get Server public key TEST'}
                 containerStyle={styles.containerBt}
                 onPress= {async () => {
-                    const ret = await getUserKeys('침착맨')
-                    console.log(ret,serverPublicKey)
+    
+                    console.log(await getServerKey())
                 }}
             />
 

@@ -1,12 +1,14 @@
 import SQLiteManager from "../db";
 
-class myInfoModel extends SQLiteManager {
+export class myInfoModel extends SQLiteManager {
 
     nickname = undefined;
+    tableFlag = false;
     initFlag = false;
 
-    async createTable() {
+    async createModelTable() {
         try {
+            if(this.tableFlag){return;}
             await super.createTable('myInfo',[
                 {
                     name : 'nickname',
@@ -39,6 +41,8 @@ class myInfoModel extends SQLiteManager {
                     isNotNull : true
                 },
             ])
+            
+            this.tableFlag = true
         } catch (error) {
             console.log(error);
             throw error;
@@ -91,6 +95,6 @@ class myInfoModel extends SQLiteManager {
             throw error;
         }
     }
-
-
 }
+
+export default myInfoModel;

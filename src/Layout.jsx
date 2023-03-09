@@ -15,30 +15,29 @@ import StackInitNav from './components/init.navi';
 import StackPageNavi from './components/page.navi';
 import PublicKey from './core/snark/struct/pk';
 import { getServerKeys } from './core/http/serverQuery';
-import { setServerPublicKey, selectPublicKey } from './store/serverInfoSlice';
-
+import DBInstance, { createTable } from './db/index';
+import { setInitDB, setInitServer } from './store/initSlice';
 
 const Layout = () => {
     const dispatch = useDispatch();
     const { isLogin } = useSelector(state => state.init);
 
-    const loadEffect = () => {
-
-    };
-
     useEffect( () => {
         async function initServerState() {
+            await createTable();
+            if(DBInstance.serverDB.initFlag){return;}
             const servKeys = await getServerKeys();
-            // console.log('server keys : ', servKeys , _.get(servKeys, "pk_own"))
-            const pubkey_server = new PublicKey(
+
+            DBInstance.serverDB.init(
                 _.get(servKeys, "pk_own"),
-                _.get(servKeys, "pk_enc"), 
-                type = 'del'
-            )
-            dispatch(setServerPublicKey(pubkey_server));
+                _.get(servKeys, "pk_enc")
+            )   
+            dispatch(setInitServer);
+            dispatch(setInitDB);
         }
         initServerState();
-        loadEffect();
+
+        
     }, []);
 
     return (

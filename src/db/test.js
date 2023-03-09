@@ -35,3 +35,8 @@ export const dropTableTEST = async () => {
         console.log(error);
     }
 }
+
+
+export const getServerKey = async () => {
+    
+}

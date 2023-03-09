@@ -6,7 +6,6 @@ import PageHome from './page.home';
 const Stack = createStackNavigator();
 
 const StackPageNavi = () => {
-
     useEffect(() => {
 
     }, []);

@@ -14,6 +14,7 @@ import { loginQuery } from '../core/http/loginQuery';
 import { setLogin } from '../store/initSlice';
 import { setData, setKey, setPublicKey } from '../store/infoSlice';
 import { getDataListQuery } from '../core/http/dataQuery';
+import DBInstance from '../db/index';
 
 
 const InitLogin = ({ navigation }) => {
@@ -34,7 +35,8 @@ const InitLogin = ({ navigation }) => {
                 title={'login'}
                 containerStyle={styles.containerBt}
                 onPress={ async () => {
-                    if(await loginQuery(localSk)){
+                    const [check] = await loginQuery(localSk);
+                    if(check){
                         dispatch(setLogin())
                         const data = await getDataListQuery();
                         dispatch(setData(data));
@@ -42,6 +44,7 @@ const InitLogin = ({ navigation }) => {
                         const usrkey = UserKey.recoverFromUserSk(localSk);
                         dispatch(setKey(usrkey));
                         dispatch(setPublicKey(PublicKey.fromUserKey(usrkey)));
+                        
                     }
                     else{
                         Alert.alert('올바르지 않습니다.')

@@ -2,7 +2,10 @@ import SQLiteManager from "../db";
 
 export class dataModel extends SQLiteManager {
 
+    tableFlag= false;
+
     async createModelTable(){
+        if(this.tableFlag) {return ;}
         try {
             await super.createTable('data',[
                 {
@@ -27,6 +30,7 @@ export class dataModel extends SQLiteManager {
                     isNotNull : true
                 }
             ])
+            this.tableFlag = true;
         } catch (error) {
             console.log(error);
             throw error;
@@ -35,7 +39,6 @@ export class dataModel extends SQLiteManager {
 
     async insertData(data) {
         try {
-            // console.log(data);
             await super.insert('data', data);
         } catch (error) {
             console.log(error);

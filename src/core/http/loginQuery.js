@@ -13,12 +13,12 @@ export async function loginQuery(sk_own) {
         })
 
         if (!_.get(res.data, 'flag')) {
-            return false;
+            return [false, undefined];
         }
 
         httpCli.defaults.headers.common['access-token'] = JSON.stringify(res.data);
 
-        return true;
+        return [true, res.data];
     } catch (error) {
         return false
     }
