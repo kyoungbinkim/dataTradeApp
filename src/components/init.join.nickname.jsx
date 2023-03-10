@@ -4,21 +4,16 @@ import {
     View, Modal, Pressable, TextInput, Alert,
     StyleSheet,
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
 
 import CustomChipButton from '../elements/chipButton';
 import InputBox from '../elements/inputBox';
-import { selectNickname, setNickname } from '../store/joinSlice';
-
 import joinQuery from '../core/http/joinQuery';
 
 
-const InitJoinNickname = ({ navigation }) => {
-    const dispathch = useDispatch();
-    // const [keyGenVis, setKeyGenVis] = useState(false);
+const InitJoinNickname = ({ route, navigation }) => {
     const [nickname, setLocalNickname] = useState('');
+    const { sk_own } = route.params;
 
-    // const nickname = useSelector(selectNickname)
     return (
         <View style={[styles.container]}>
             <InputBox
@@ -35,8 +30,10 @@ const InitJoinNickname = ({ navigation }) => {
                 onPress={ async () => {
                     try {
                         if(await joinQuery.nicknameCheck(nickname)){
-                            dispathch(setNickname(nickname))
-                            navigation.navigate('Join/join')                    
+                            navigation.navigate('Join/join', {
+                                sk_own : sk_own,
+                                nickname : nickname
+                            })                    
                         }
                         else{
                             Alert.alert('닉네임을 다시 입력하시오')

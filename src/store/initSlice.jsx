@@ -5,6 +5,7 @@ const initialState = {
     isLogin: false,
     isInitDB : false,
     isInitServer: false,
+    usrIdx : -1
 };
 
 const initSlice = createSlice({
@@ -24,9 +25,12 @@ const initSlice = createSlice({
 
         setInitServer(state) {
             state.isInitServer = true;
+        },
+        setUsrIdx(state, payload) {
+            state.usrIdx = payload.action;
         }
     }
 });
 
-export const { setLogin, setLogout, setInitDB, setInitServer } = initSlice.actions;
+export const { setLogin, setLogout, setInitDB, setInitServer, setUsrIdx } = initSlice.actions;
 export default initSlice.reducer;

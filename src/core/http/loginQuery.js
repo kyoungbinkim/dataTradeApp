@@ -16,11 +16,29 @@ export async function loginQuery(sk_own) {
             return [false, undefined];
         }
 
-        httpCli.defaults.headers.common['access-token'] = JSON.stringify(res.data);
+        setJWT(
+            _.get(res.data, 'nickname'),
+            _.get(res.data, 'token'),
+            _.get(res.data, 'loginTk')
+        )
+
+        // httpCli.defaults.headers.common['access-token'] = JSON.stringify(res.data);
 
         return [true, res.data];
     } catch (error) {
         return false
     }
-    
+}
+
+export function setJWT(
+    nickname,
+    token,
+    login_tk
+) {
+    console.log(nickname, login_tk, token)
+    httpCli.defaults.headers.common['access-token'] = JSON.stringify(new Object({
+        nickname : nickname,
+        loginTk : login_tk,
+        token : token
+    }));
 }

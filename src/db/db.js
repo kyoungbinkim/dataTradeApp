@@ -147,7 +147,6 @@ export class SQLiteManager {
         if (order) {
             query += ' ORDER BY ' + order;
         }
-
         let selectQuery;
         if (where) {
             let whereKey = Object.keys(where);

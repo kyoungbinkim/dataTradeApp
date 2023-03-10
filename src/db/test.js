@@ -22,7 +22,7 @@ export const DBtest = async () => {
 
 export const createTableTEST = async () => {
     try {
-        console.log(await createTable())
+        await createTable()
     } catch (error) {
         console.log(error);
     }
@@ -34,9 +34,4 @@ export const dropTableTEST = async () => {
     } catch (error) {
         console.log(error);
     }
-}
-
-
-export const getServerKey = async () => {
-    
 }

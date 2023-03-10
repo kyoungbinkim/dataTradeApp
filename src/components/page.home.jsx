@@ -18,7 +18,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import CustomChipButton from '../elements/chipButton';
 import InputBox from '../elements/inputBox';
-import TableElement from '../elements/table';
 
 import { getDataListQuery } from '../core/http/dataQuery';
 import { selectData, selectKey, setData, setSkOwn } from '../store/infoSlice';

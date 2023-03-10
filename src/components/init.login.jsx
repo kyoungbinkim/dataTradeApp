@@ -8,47 +8,59 @@ import { useDispatch, useSelector } from 'react-redux';
 import CustomChipButton from '../elements/chipButton';
 import InputBox from '../elements/inputBox';
 
+import loginService from '../core/service/login';
 import PublicKey from '../core/snark/struct/pk';
 import UserKey from '../core/wallet/keyStruct';
 import { loginQuery } from '../core/http/loginQuery';
 import { setLogin } from '../store/initSlice';
 import { setData, setKey, setPublicKey } from '../store/infoSlice';
 import { getDataListQuery } from '../core/http/dataQuery';
-import DBInstance from '../db/index';
 
 
 const InitLogin = ({ navigation }) => {
     const dispatch = useDispatch();
 
     const [localSk, setLocalSk] = useState('');
+    const [psswrd, setPsswrd] = useState('');
     return (
         <View style={styles.container}>
             <InputBox
-                inputLabel={'write your sk_own'}
-                inputPlaceHolder={''}
-                setState={setLocalSk}
-                defaultText={localSk}
-                isSecure={false}
+                inputLabel={''}
+                inputPlaceHolder={'비밀번호를 입력하시오'}
+                setState={setPsswrd}
+                defaultText={psswrd}
+                isSecure={true}
                 onBlur={() => { }}
             />
             <CustomChipButton
                 title={'login'}
                 containerStyle={styles.containerBt}
                 onPress={ async () => {
-                    const [check] = await loginQuery(localSk);
-                    if(check){
-                        dispatch(setLogin())
+
+                    const [flag, info] = await loginService(psswrd);
+
+                    if(flag){
                         const data = await getDataListQuery();
                         dispatch(setData(data));
-
-                        const usrkey = UserKey.recoverFromUserSk(localSk);
-                        dispatch(setKey(usrkey));
-                        dispatch(setPublicKey(PublicKey.fromUserKey(usrkey)));
-                        
+                        dispatch(setLogin());
                     }
                     else{
-                        Alert.alert('올바르지 않습니다.')
+                        Alert.alert('등록되지 않거나 올바르지 않은 비밀번호입니다.')
                     }
+                    // const [check] = await loginQuery(localSk);
+                    // if(check){
+                    //     dispatch(setLogin())
+                    //     const data = await getDataListQuery();
+                    //     dispatch(setData(data));
+
+                    //     const usrkey = UserKey.recoverFromUserSk(localSk);
+                    //     dispatch(setKey(usrkey));
+                    //     dispatch(setPublicKey(PublicKey.fromUserKey(usrkey)));
+                        
+                    // }
+                    // else{
+                    //     
+                    // }
                 }}
             />
         </View>

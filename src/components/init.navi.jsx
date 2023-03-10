@@ -8,6 +8,7 @@ import InitJoinHome from './init.join.home';
 import InitJoinNickname from './init.join.nickname';
 import InitJoinAddr from './init.join.addr';
 import InitJoinJoin from './init.join';
+import InitJoinPsswrd from './init.join.psswrd';
 
 const Stack = createStackNavigator();
 
@@ -24,7 +25,7 @@ const StackInitNav = () => {
                 <Stack.Screen name="Join/home" component={InitJoinHome} />
                 <Stack.Screen name='Join/nickname' component={InitJoinNickname}/>
                 <Stack.Screen name='Join/addr' component={InitJoinAddr}/>
-                <Stack.Screen name='Join/join' component={InitJoinJoin} />
+                <Stack.Screen name='Join/join' component={InitJoinPsswrd} />
                 <Stack.Screen name="Login" component={InitLogin}/>
             </Stack.Group>
         </Stack.Navigator>

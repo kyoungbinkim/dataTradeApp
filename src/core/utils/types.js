@@ -37,6 +37,13 @@ export function isHexStringFormat(data) {
     return isBigIntFormat(data);
 }
 
+export function toHexStringFormat(hexString) {
+    if (isHexStringFormat(hexString)){
+        return hexString
+    }
+    return '0x' + hexString;
+}
+
 /**
  *
  * @param {string} hexString hexadecimal string

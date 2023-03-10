@@ -47,7 +47,9 @@ export class dataModel extends SQLiteManager {
     }
 
     async dropTable() {
+        if(!this.tableFlag){return;}
         try {
+            this.tableFlag= false;
             await super.drop('data');
         }
         catch (error) {

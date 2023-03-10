@@ -62,6 +62,18 @@ export class serverModel extends SQLiteManager {
         }
     }
 
+    async dropTable() {
+        if(!this.tableFlag){return;}
+        try {
+            this.tableFlag= false;
+            await super.drop('server');
+        }
+        catch (error) {
+            console.error('server DROP TABLE : ',error);
+            throw error;
+        }
+    }
+
 }
 
 export default serverModel;

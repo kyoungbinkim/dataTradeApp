@@ -5,19 +5,16 @@ import {
     StyleSheet,
 } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
-import { useDispatch, useSelector } from 'react-redux';
 
 import CustomChipButton from '../elements/chipButton';
-import { setSkOwn } from '../store/joinSlice';
-import { selectSkOwn } from '../store/joinSlice';
 import UserKey from '../core/wallet/keyStruct.js';
 
-const InitJoinHome = ({ navigation }) => {
-    const dispathch = useDispatch();
+const InitJoinHome = ({route, navigation }) => {
     const [keyGenVis, setKeyGenVis] = useState(false);
+    const [sk_own , setSk_own] = useState('');
 
     const KeyGenModal = () => {  
-        const sk_own = useSelector(selectSkOwn);
+        Clipboard.setString(sk_own);
         return (
             <Modal
                 animationType='slide'
@@ -36,7 +33,9 @@ const InitJoinHome = ({ navigation }) => {
                         <CustomChipButton
                             onPress={ () => {
                                 setKeyGenVis(false)
-                                navigation.navigate('Join/nickname')
+                                navigation.navigate('Join/nickname',{
+                                    sk_own : sk_own
+                                })
                             }}
                             containerStyle = {[styles.containerBt]}
                             title={'close'}
@@ -53,10 +52,9 @@ const InitJoinHome = ({ navigation }) => {
                     title={'key generation 🔑'}
                     containerStyle={[styles.containerBt]}
                     onPress={() => {
-                        const sk_own = UserKey.keyGen()['skOwn']
-                        dispathch(setSkOwn(sk_own));
-                        Clipboard.setString(sk_own);
-                        Alert.alert('비밀키가 클립보드에 복사되었습니다.');
+                        setSk_own(UserKey.keyGen()['skOwn'])
+                        
+                        // Alert.alert('비밀키가 클립보드에 복사되었습니다.');
                         setKeyGenVis(true);
                 }}/>
                 {<KeyGenModal/>}

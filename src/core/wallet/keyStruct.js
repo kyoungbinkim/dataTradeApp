@@ -105,6 +105,11 @@ export default class UserKey {
 
         return new UserKey(userPubKey, sk_enc, sk_own);
     }
+
+    getLoginTk() {
+        const mimc7 = new mimc.MiMC7();
+        return mimc7.hash(this.pk.pkOwn, types.asciiToHex('login'));
+    }
 }
 
 // class UserKey {

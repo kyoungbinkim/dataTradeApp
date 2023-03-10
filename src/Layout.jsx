@@ -15,7 +15,7 @@ import StackInitNav from './components/init.navi';
 import StackPageNavi from './components/page.navi';
 import PublicKey from './core/snark/struct/pk';
 import { getServerKeys } from './core/http/serverQuery';
-import DBInstance, { createTable } from './db/index';
+import DBInstance, { createTable, dropTable } from './db/index';
 import { setInitDB, setInitServer } from './store/initSlice';
 
 const Layout = () => {

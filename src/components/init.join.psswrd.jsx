@@ -8,18 +8,20 @@ import {
 import Clipboard from '@react-native-clipboard/clipboard';
 
 import CustomChipButton from '../elements/chipButton';
+import InputBox from '../elements/inputBox';
 import mimc from '../core/crypto/mimc';
 import UserKey from '../core/wallet/keyStruct';
 import httpCli from '../core/http/http';
 import types from '../core/utils/types';
+import JoinService from '../core/service/join';
 
-const InitJoinJoin = ({ route, navigation }) => {
+const InitJoinPsswrd = ({ route, navigation }) => {
 
     const { sk_own, nickname } = route.params;
-    // const sk_own = useSelector(selectSkOwn);
-    // const nickname = useSelector(selectNickname);
+    const [psswrd, setPsswrd] = useState('');
+    const [psswrdCheck, setPsswrdCheck] = useState('');
 
-    useEffect(()=>{},[])
+    useEffect(() => {}, [])
 
     function join(){
         const mimc7 = new mimc.MiMC7();
@@ -53,14 +55,43 @@ const InitJoinJoin = ({ route, navigation }) => {
 
     return(
         <View style={[styles.container]}>
-            <Text style={styles.text}>nickname : {nickname}</Text>
-            <Text style={styles.text}>sk_own : {sk_own}</Text>
-            {/* <Text style={styles.text}>address : {address}</Text> */}
-            <CustomChipButton
-                containerStyle={styles.containerBt}
-                title={'Join'}
-                onPress={()=>{join()}}
+            <InputBox
+                inputLabel={'password'}
+                inputPlaceHolder={'비밀번호를 입력하시오'}
+                setState={setPsswrd}
+                defaultText={psswrd}
+                isSecure={true}
+                onBlur={() => {}}
             />
+            <InputBox
+                inputLabel={''}
+                inputPlaceHolder={'비밀번호 다시 한번 입력해주세요'}
+                setState={setPsswrdCheck}
+                defaultText={psswrdCheck}
+                isSecure={true}
+                onBlur={() => {}}
+            />
+
+            {
+                psswrdCheck === psswrd && psswrd !== '' ?
+                    <CustomChipButton
+                        containerStyle={styles.containerBt}
+                        title={'Join'}
+                        onPress={async () => {
+                            const [flag, ret] = await JoinService(sk_own, nickname, psswrd);
+                            console.log(flag, ret);
+                            if (!flag) {
+                                Alert.alert('다시 시도 해주세요.')
+                            }
+                            Alert.alert("sucess Join" +
+                                "\n\nblockHash : " + ret['receipt']['blockHash'] +
+                                "\ntxHash : " + ret['receipt']['transactionHash'] + '\n');
+                            Clipboard.setString(sk_own);
+                            navigation.navigate(`Init`);
+                        }}
+                    /> :
+                    <></>
+            }
         </View>
     );
 }
@@ -125,4 +156,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default InitJoinJoin;
+export default InitJoinPsswrd;
