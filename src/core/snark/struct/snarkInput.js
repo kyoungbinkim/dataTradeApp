@@ -52,15 +52,15 @@ export default class SnarkInputs{
         const symEnc = new Encryption.symmetricKeyEncryption(this.k_ena);
         const pubEnc = new Encryption.publicKeyEncryption()
         const fee = BigInt('0x' + symEnc.Dec(this.ENA) )- BigInt('0x'+symEnc.Dec(this.ENA_),'hex' )
-        console.log(symEnc.Dec(this.ENA),)
-        console.log(symEnc.Dec(this.ENA_), )
-        console.log('fee : ', fee.toString(10))
+        // console.log(symEnc.Dec(this.ENA),)
+        // console.log(symEnc.Dec(this.ENA_), )
+        // console.log('fee : ', fee.toString(10))
 
         this.fee_del = BigInt('2000').toString(16).padStart(64, '0')
         this.fee_own = BigInt('96000').toString(16).padStart(64, '0')
         
-        console.log('fee_del : ',this.fee_del.padStart(64, '0'))
-        console.log('fee_own : ',this.fee_own, '\n\n')
+        // console.log('fee_del : ',this.fee_del.padStart(64, '0'))
+        // console.log('fee_own : ',this.fee_own, '\n\n')
 
         const [cm, rand] = CoinCommitment.genCm(
             this.pk_own_peer,
@@ -70,7 +70,7 @@ export default class SnarkInputs{
             this.fee_del,
             this.h_k
         )
-        console.log(cm.toJson(), rand);
+        // console.log(cm.toJson(), rand);
         this.cm_del = cm.cm_del
         this.cm_own = cm.cm_own
         this.r_cm = rand

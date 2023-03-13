@@ -17,6 +17,8 @@ import PublicKey from './core/snark/struct/pk';
 import { getServerKeys } from './core/http/serverQuery';
 import DBInstance, { createTable, dropTable } from './db/index';
 import { setInitDB, setInitServer } from './store/initSlice';
+import { initLibSnark } from './core/service/order';
+import { initTradeContract } from './core/web3';
 
 const Layout = () => {
     const dispatch = useDispatch();
@@ -34,6 +36,8 @@ const Layout = () => {
             )   
             dispatch(setInitServer);
             dispatch(setInitDB);
+            await initLibSnark();
+            await initTradeContract();
         }
         initServerState();
 

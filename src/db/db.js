@@ -56,9 +56,7 @@ export class SQLiteManager {
         
 
         query = 'CREATE TABLE IF NOT EXISTS ' + tableName + ' (' + query + ')';
-        // console.log(query);
         return this.executeQuery(query);
-        // console.log(table);
     }
 
     /**
@@ -70,8 +68,6 @@ export class SQLiteManager {
     async insert(tableName, data) {
         let keys = Object.keys(data);
         let values = keys.map((key) => data[key]);
-
-        console.log(keys, values)
 
         let query = 'INSERT INTO ' + tableName + ' (';
         for (let i = 0; i < keys.length; i++) {
@@ -87,7 +83,7 @@ export class SQLiteManager {
         query = query.slice(0, query.length - 1);
         query += ')';
 
-        console.log('insert :',query, values);
+        // console.log('insert :',query, values);
         return this.executeQuery(query, values);
     }
 
@@ -117,9 +113,7 @@ export class SQLiteManager {
         query = query.slice(0, query.length - 1);
         values.push(...whereValue);
 
-        // console.log(query, values);
         return await this.executeQuery(query, values);
-        // console.log(updateQuery);
     }
 
     /**
@@ -153,9 +147,7 @@ export class SQLiteManager {
             let whereValue = whereKey.map((key) => where[key]);
             selectQuery = await this.executeQuery(query, whereValue);
         } else {
-            // console.log(query);
             selectQuery = await this.executeQuery(query);
-            // console.log(selectQuery);
         }
 
         let rows = selectQuery.rows;

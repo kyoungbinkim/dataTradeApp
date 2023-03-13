@@ -13,6 +13,8 @@ import { getMyInfo, getServerKey } from '../db';
 import JoinService from '../core/service/join';
 import { randomFieldElement } from '../core/utils/math';
 import { orderData } from '../core/service/order';
+import { getDataInfoFromHct } from '../core/http/dataQuery';
+
 
 const InitWalletPage = ({ navigation }) => {
 
@@ -107,7 +109,8 @@ const InitWalletPage = ({ navigation }) => {
                 containerStyle={styles.containerBt}
                 onPress = {async () => {
                     try {
-                        await orderData('1')
+                        await getDataInfoFromHct('2a495be70e6922b27cc1c08ae16cfd1fa035ba08d9f44bcbe58d2c876b1dca89');
+                        // await orderData('1')
                     } catch (error) {
                         console.log(error)
                     }

@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React, { useEffect, useState } from 'react';
 import { 
     View,
@@ -12,7 +13,7 @@ import loginService from '../core/service/login';
 import PublicKey from '../core/snark/struct/pk';
 import UserKey from '../core/wallet/keyStruct';
 import { loginQuery } from '../core/http/loginQuery';
-import { setLogin } from '../store/initSlice';
+import { setLogin, setUsrIdx } from '../store/initSlice';
 import { setData, setKey, setPublicKey } from '../store/infoSlice';
 import { getDataListQuery } from '../core/http/dataQuery';
 
@@ -39,28 +40,17 @@ const InitLogin = ({ navigation }) => {
 
                     const [flag, info] = await loginService(psswrd);
 
-                    if(flag){
+                    console.log(info, typeof info,Number.parseInt( _.get(info, 'idx') ));
+
+                    if(flag) {
                         const data = await getDataListQuery();
+                        dispatch(setUsrIdx(_.get(info, 'idx') ))
                         dispatch(setData(data));
                         dispatch(setLogin());
                     }
                     else{
                         Alert.alert('등록되지 않거나 올바르지 않은 비밀번호입니다.')
                     }
-                    // const [check] = await loginQuery(localSk);
-                    // if(check){
-                    //     dispatch(setLogin())
-                    //     const data = await getDataListQuery();
-                    //     dispatch(setData(data));
-
-                    //     const usrkey = UserKey.recoverFromUserSk(localSk);
-                    //     dispatch(setKey(usrkey));
-                    //     dispatch(setPublicKey(PublicKey.fromUserKey(usrkey)));
-                        
-                    // }
-                    // else{
-                    //     
-                    // }
                 }}
             />
         </View>

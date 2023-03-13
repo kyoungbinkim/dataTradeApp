@@ -5,7 +5,7 @@ const initialState = {
     isLogin: false,
     isInitDB : false,
     isInitServer: false,
-    usrIdx : -1
+    usrIdx : undefined
 };
 
 const initSlice = createSlice({
@@ -26,11 +26,15 @@ const initSlice = createSlice({
         setInitServer(state) {
             state.isInitServer = true;
         },
-        setUsrIdx(state, payload) {
-            state.usrIdx = payload.action;
+        setUsrIdx(state, action) {
+            state.usrIdx = action.payload;
         }
     }
 });
+
+export const selectUsrIdx = (state) => {
+    return state.init.usrIdx;
+}
 
 export const { setLogin, setLogout, setInitDB, setInitServer, setUsrIdx } = initSlice.actions;
 export default initSlice.reducer;

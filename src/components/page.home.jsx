@@ -23,14 +23,22 @@ import { getDataListQuery } from '../core/http/dataQuery';
 import { selectData, selectKey, setData, setSkOwn } from '../store/infoSlice';
 import { getUserKeys } from '../core/http/serverQuery';
 import { selectServerPublicKey } from '../store/serverInfoSlice';
+import { getDataInfoFromHct } from '../core/http/dataQuery';
+import { selectUsrIdx } from '../store/initSlice';
+import { orderData } from '../core/service/order';
 
 const PageHome = ({navigation}) => {
     const dispatch = useDispatch();
     
+    const usrIdx   = useSelector(selectUsrIdx);
     const dataList = useSelector(selectData);
     
+    // console.log(usrIdx,dataList)
+
+    const [didx, setDidx] = useState(0);
     const [vis, setVis] = useState(false);
     const [dis, setDis] = useState('');
+    const [hct, setHct] = useState('');
     const [nck, setNck] = useState('');
 
     useEffect(
@@ -47,6 +55,11 @@ const PageHome = ({navigation}) => {
                 <CustomChipButton
                     containerStyle={styles.containerBt}
                     onPress={async ()=> {
+                        console.log(hct);
+                        
+                        const info = await getDataInfoFromHct(hct)
+                        console.log(info)
+                        await orderData(usrIdx, hct)
                         // // const userKey = await getUserKeys(nck);
                         // console.log("hi", serverPublicKey)
                         // console.log('my KEY : ', key);
@@ -65,8 +78,10 @@ const PageHome = ({navigation}) => {
     const ViewButton = (ind) => (
         <TouchableOpacity 
             onPress={() => { 
+                setDidx(ind);
                 setDis(dataList[ind]['descript']);
                 setNck(dataList[ind]['owner_nickname']);
+                setHct(dataList[ind]['h_ct']);
                 setVis(true);
             }}
             style={{alignItems:'center'}}

@@ -29,13 +29,13 @@ export const initTradeContract = async () => {
     }
     tradeContract = new contract(rpcURL, contractAddr);
 
-    // test contract instance
-    try {
-        console.log(await tradeContract.isRegisteredData('123'))
-    } catch (error) {
-        isInit = false;
-        return;
-    }
+    // // test contract instance
+    // try {
+    //     console.log(await tradeContract.isRegisteredData('123'))
+    // } catch (error) {
+    //     isInit = false;
+    //     return;
+    // }
     
 }
 

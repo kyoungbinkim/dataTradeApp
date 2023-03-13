@@ -112,8 +112,6 @@ export const testOrder = async () => {
 
   const vf = await snarkClass.runVerify(proof, snarkInputs.toSnarkInput());
   console.log('vf:', vf);
-
-
   
   try {
     const contractInputs = snarkInputs.toContractInput();
