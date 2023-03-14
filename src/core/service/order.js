@@ -9,7 +9,7 @@ import SnarkInputs from '../snark/struct/snarkInput';
 import Libsnark from '../snark/bridge/libsnark';
 import { getTradeContract } from '../web3';
 import { proofFlat } from '../web3/utils';
-
+import { genTradeQuery } from '../http/dataQuery';
 
 let snarkClass = new Libsnark();
 
@@ -79,8 +79,17 @@ export const orderData = async (idx, h_ct) => {
             _.get(consKeyJson, 'eoa'),
             '0x' + _.get(consKeyJson, 'eoa_sk')
         )
-        console.log(receipt)
+        console.log(receipt, typeof receipt)
 
+        
+        const getTx =  await getTradeContract().eth.getTransaction(_.get(receipt, 'transactionHash'))
+        console.log('getTransaction',getTx)
+        const tmp = _.get(getTx, 'input').slice(10)
+        for(let i=0; i<27; i++ ){
+            console.log(tmp.slice(i*64, (i+1)*64))
+        }
+
+        const genTradeRes = await genTradeQuery(h_ct, _.get(receipt, 'transactionHash'))
     } catch (error) {
         console.log(error)
         throw error;
