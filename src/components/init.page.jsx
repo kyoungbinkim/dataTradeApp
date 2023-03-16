@@ -9,7 +9,7 @@ import { DBtest, dropTableTEST, createTableTEST } from '../db/test';
 import { getUserKeys } from '../core/http/serverQuery';
 import { selectServerPublicKey } from '../store/serverInfoSlice';
 import { useSelector } from 'react-redux';
-import { getMyInfo, getServerKey } from '../db';
+import DBInstance, { getMyInfo, getServerKey } from '../db';
 import JoinService from '../core/service/join';
 import { randomFieldElement } from '../core/utils/math';
 import { orderData } from '../core/service/order';
@@ -76,6 +76,19 @@ const InitWalletPage = ({ navigation }) => {
                 containerStyle={[styles.containerBt]}
                 onPress={async () => {
                     await createTableTEST();
+                }}
+            />
+            <CustomChipButton 
+                title={'get Data From DB'}
+                containerStyle={styles.containerBt}
+                onPress = {async () => {
+                    try {
+                        const d = await DBInstance.dataDB.getData()
+                        console.log('get Data From DB', d);
+                    } catch (error) {
+                        console.log(error)
+                    }
+                    
                 }}
             />
             <CustomChipButton

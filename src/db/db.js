@@ -141,6 +141,8 @@ export class SQLiteManager {
         if (order) {
             query += ' ORDER BY ' + order;
         }
+        //DEBUG
+        console.log('select Query : ', query)
         let selectQuery;
         if (where) {
             let whereKey = Object.keys(where);
@@ -155,8 +157,9 @@ export class SQLiteManager {
         for (let i = 0; i < rows.length; i++) {
             res.push(rows.item(i));
         }
+
         // DEBUG
-        // console.log(res);
+        console.log(res);
         return res;
     }
 

@@ -5,7 +5,6 @@ import {
   SafeAreaView,
   ScrollView,
   StatusBar,
-  View
 } from 'react-native';
 
 import CustomChipButton from './chipButton';
@@ -74,23 +73,30 @@ const styles = StyleSheet.create({
 });
 
 
-export function DataViewComp({ route, navigation}) {
-  const { title, owner, data, navi } = route.params;
-  console.log(title, owner, navi )
+export function DataViewComp({ title, owner, data, onPress, btTitle }) {
+  // const { title, owner, data, navi } = route.params;
   return (<>
     <DataView
-      title = {title}
-      owner = {owner}
-      dataText= {data}
+      title = {title?? 'title'}
+      owner = {owner ?? 'owner'}
+      dataText= {data ?? 'data'}
     />
     <CustomChipButton
-      title= {'close'}
+      title= {btTitle??'close'}
       containerStyle={styles.containerBt}
-      onPress={()=>{
-        navigation.navigate(navi??'Init');
-      }}
+      onPress={onPress}
     />
   </>);
+}
+export function DataViewNavi({route, navigation}) {
+  const {title, owner, data, onPress, btTitle, navi} = route.params;
+  return (<DataViewComp
+    title={title}
+    owner={owner}
+    data={data}
+    btTitle = {btTitle}
+    onPress={()=>{navigation.navigate(navi??'data/home')}}
+  />)
 }
 
 export default DataView;

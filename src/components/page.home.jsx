@@ -1,31 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from 'react-native-elements';
 import { 
     View,
     StyleSheet,
-    Platform, 
-    SafeAreaView, 
-    StatusBar, 
-    Alert,
     ScrollView,
     Text,
     TouchableOpacity,
-    Pressable,
     Modal} from 'react-native';
-import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
-import { NavigationContainer } from '@react-navigation/native';
+import { Table, TableWrapper, Row, Cell } from 'react-native-table-component';
 import { useDispatch, useSelector } from 'react-redux';
 
 import CustomChipButton from '../elements/chipButton';
-import InputBox from '../elements/inputBox';
-
 import { getDataListQuery } from '../core/http/dataQuery';
-import { selectData, selectKey, setData, setSkOwn } from '../store/infoSlice';
-import { getUserKeys } from '../core/http/serverQuery';
-import { selectServerPublicKey } from '../store/serverInfoSlice';
+import { selectData, setData } from '../store/infoSlice';
 import { getDataInfoFromHct } from '../core/http/dataQuery';
 import { selectUsrIdx } from '../store/initSlice';
 import { orderData } from '../core/service/order';
+import { DataViewComp } from '../elements/dataView';
 
 const PageHome = ({navigation}) => {
     const dispatch = useDispatch();
@@ -40,6 +30,9 @@ const PageHome = ({navigation}) => {
     const [dis, setDis] = useState('');
     const [hct, setHct] = useState('');
     const [nck, setNck] = useState('');
+    const [dat, setDat] = useState('');
+    const [tit, setTit] = useState('');
+    const [novVis, setNovVis] = useState(false);
 
     useEffect(
         () => {() => {}}
@@ -60,20 +53,26 @@ const PageHome = ({navigation}) => {
                         const info = await getDataInfoFromHct(hct)
                         console.log(info)
                         try {
-                            const [flag, title, owenr, data] = await orderData(usrIdx, hct)
-                            navigation.navigate('view', {
-                                title : title,
-                                owenr : owenr,
-                                data  : data,
-                                navi : 'home'
-                            })
+                            const [flag, title, owner, data] = await orderData(usrIdx, hct)
+                            if(!flag){
+                                setVis(false);
+                                return navigation.navigate('home')
+                            }
+                            setDat(data)
+                            setTit(title)
+                            setDat(data);
+                            setNck(owner);
+                            setNovVis(true);
+                            // navigation.navigate('view', {
+                            //     title : title,
+                            //     owenr : owner,
+                            //     data  : data,
+                            //     navi : 'home'
+                            // })
                         } catch (error) {
                             console.log(error)
                         }
                         
-                        // // const userKey = await getUserKeys(nck);
-                        // console.log("hi", serverPublicKey)
-                        // console.log('my KEY : ', key);
                         setVis(false);
                     }}
                     title={'Buy📚'}
@@ -91,6 +90,7 @@ const PageHome = ({navigation}) => {
         <TouchableOpacity 
             onPress={() => { 
                 setDidx(ind);
+                setTit(dataList[ind]['title'])
                 setDis(dataList[ind]['descript']);
                 setNck(dataList[ind]['owner_nickname']);
                 setHct(dataList[ind]['h_ct']);
@@ -106,6 +106,16 @@ const PageHome = ({navigation}) => {
     );
     
     return(
+        novVis?
+        <>
+            <DataViewComp 
+                title={tit}
+                owner={nck}
+                data={dat}
+                onPress={()=>{setNovVis(false)}}
+            />
+        </>
+        :
         <View style={styles.container}>
             {ViewModal()}
             <ScrollView
@@ -184,10 +194,3 @@ const styles = StyleSheet.create({
 })
 
 export default PageHome;
-
-/**
- * 0x44fdbd63557b3f9dcd64d87f774c75274b165d88b62556300a06434ef4afb79
- * 0x44348fcdc35ff4cbc1afb522aeab4cdf6b18f25acad09b5741c994a20428f02
- * 
- * 
- */

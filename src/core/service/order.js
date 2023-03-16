@@ -89,7 +89,6 @@ export const orderData = async (idx, h_ct) => {
         const resJson = _.get(genTradeRes,'data')
 
         if(_.get(resJson, 'flag') == false){
-            // throw new Error('query error')
             return [false, undefined, undefined, undefined]
         }
 
@@ -99,7 +98,7 @@ export const orderData = async (idx, h_ct) => {
         let { title, owner, key, data} = resJson
         data= decodeURIComponent(data)
 
-        DBInstance.dataDB.insertData(
+        await DBInstance.dataDB.insertData(
             data, 
             owner,
             title,
@@ -110,7 +109,6 @@ export const orderData = async (idx, h_ct) => {
         return [true, title, owner, data]
     } catch (error) {
         console.log(error)
-        // throw error;
         return [false, undefined, undefined, undefined]
     }
     

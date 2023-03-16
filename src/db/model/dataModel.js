@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import SQLiteManager from "../db";
 
 export class dataModel extends SQLiteManager {
@@ -68,11 +69,26 @@ export class dataModel extends SQLiteManager {
             if(h_ct){
                 _.set(dataJson, 'h_ct', h_ct)
             }
-
-            await super.insert('data', dataJson);
+            console.log(dataJson);
+            const ret = await super.insert('data', dataJson);
+            console.log(ret)
         } catch (error) {
             console.log(error);
             throw error;
+        }
+    }
+
+    async getData(){
+        try {
+            const [rows]  = await super.select(
+                'data',
+                ['title', 'owner', 'data']
+            )
+            // console.log("getData ", rows)
+            return rows
+        } catch (error) {
+            console.log(error)
+            throw error
         }
     }
 
