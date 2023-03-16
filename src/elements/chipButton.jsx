@@ -4,7 +4,7 @@ import { Chip } from 'react-native-elements';
 import { StyleSheet, Text, View } from 'react-native';
 
 
-function CustomChipButton({containerStyle, onPress, title, linearGradientColor}) {
+function CustomChipButton({containerStyle= styles.default, onPress, title, linearGradientColor}) {
     const gradientColor = linearGradientColor ? linearGradientColor : styles.chip.linearGradientProps;
     return (
         <View style={containerStyle}>
@@ -49,6 +49,15 @@ const styles = StyleSheet.create({
             fontWeight: '600',
         },
     },
+    default : {
+        alignItems: 'center',
+        height: 45,
+        width: '75%',
+        padding: 5,
+        margintop: 4,
+        textAlign: 'center',
+        justifyContent: 'center',
+    }
 });
 
 export default CustomChipButton;

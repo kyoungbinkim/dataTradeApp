@@ -118,6 +118,26 @@ const InitWalletPage = ({ navigation }) => {
                 }}
             />
 
+            <CustomChipButton
+                title={'data View Test'}
+                containerStyle={styles.containerBt}
+                onPress={async () => {
+                    let dtext = '12312312312312312dasasdasdasdasdas\n\n\n' + '\n\n'+'12341234\n\n\n\n\n\n\n\n\n\n'
+                    dtext += dtext;
+                    dtext += dtext;
+                    dtext += dtext;
+                    try {
+                        navigation.navigate('dataView',{
+                            title: '1화',
+                            owner : 'kim',
+                            data: dtext
+                        });
+                    } catch (error) {
+                        console.log(error)
+                    }
+
+                }}
+            />
 
         </View>
     )

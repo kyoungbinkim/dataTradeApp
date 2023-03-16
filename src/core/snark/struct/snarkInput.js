@@ -119,7 +119,7 @@ export default class SnarkInputs{
         for(let i=0; i<contractInputs.length; i++){
             contractInputs[i] = hexStrToDec(contractInputs[i])
         }
-        console.log(contractInputs)
+        console.log("contractInputs : ", contractInputs)
         return contractInputs;
     }
 }

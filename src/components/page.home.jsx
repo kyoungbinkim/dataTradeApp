@@ -59,10 +59,22 @@ const PageHome = ({navigation}) => {
                         
                         const info = await getDataInfoFromHct(hct)
                         console.log(info)
-                        await orderData(usrIdx, hct)
+                        try {
+                            const [flag, title, owenr, data] = await orderData(usrIdx, hct)
+                            navigation.navigate('view', {
+                                title : title,
+                                owenr : owenr,
+                                data  : data,
+                                navi : 'home'
+                            })
+                        } catch (error) {
+                            console.log(error)
+                        }
+                        
                         // // const userKey = await getUserKeys(nck);
                         // console.log("hi", serverPublicKey)
                         // console.log('my KEY : ', key);
+                        setVis(false);
                     }}
                     title={'Buy📚'}
                 />

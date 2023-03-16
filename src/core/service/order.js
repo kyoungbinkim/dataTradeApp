@@ -67,11 +67,7 @@ export const orderData = async (idx, h_ct) => {
         const proof = await snarkClass.runProof(GenTradeInputs.toSnarkInput());
         console.log(proof);
 
-        // const vf = await snarkClass.runVerify(proof, GenTradeInputs.toSnarkInput());
-        // console.log('vf:', vf);
-
         const contractInputs = GenTradeInputs.toContractInput();
-        console.log('contract input', contractInputs)
         
         const receipt = await getTradeContract().genTrade(
             proofFlat(JSON.parse(proof)),
@@ -82,17 +78,40 @@ export const orderData = async (idx, h_ct) => {
         console.log(receipt, typeof receipt)
 
         
-        const getTx =  await getTradeContract().eth.getTransaction(_.get(receipt, 'transactionHash'))
-        console.log('getTransaction',getTx)
-        const tmp = _.get(getTx, 'input').slice(10)
-        for(let i=0; i<27; i++ ){
-            console.log(tmp.slice(i*64, (i+1)*64))
-        }
+        // const getTx =  await getTradeContract().eth.getTransaction(_.get(receipt, 'transactionHash'))
+        // console.log('getTransaction',getTx)
+        // const tmp = _.get(getTx, 'input').slice(10)
+        // for(let i=0; i<27; i++ ){
+        //     console.log(tmp.slice(i*64, (i+1)*64))
+        // }
 
         const genTradeRes = await genTradeQuery(h_ct, _.get(receipt, 'transactionHash'))
+        const resJson = _.get(genTradeRes,'data')
+
+        if(_.get(resJson, 'flag') == false){
+            // throw new Error('query error')
+            return [false, undefined, undefined, undefined]
+        }
+
+        console.log(
+            decodeURIComponent(resJson['data'])
+        )
+        let { title, owner, key, data} = resJson
+        data= decodeURIComponent(data)
+
+        DBInstance.dataDB.insertData(
+            data, 
+            owner,
+            title,
+            key,
+            h_ct
+        );
+
+        return [true, title, owner, data]
     } catch (error) {
         console.log(error)
-        throw error;
+        // throw error;
+        return [false, undefined, undefined, undefined]
     }
     
 }

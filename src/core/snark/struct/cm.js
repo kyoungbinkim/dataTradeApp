@@ -23,17 +23,25 @@ export default class CoinCommitment {
         fee_del,
         h_k
     }) {
-        console.log(
-            pk_own_peer,
-        pk_own_del,
-        pk_enc_cons,
-        r_cm,
-        fee_own,
-        fee_del,
-        h_k
-        )
+        // console.log(
+        //     '\n\n makeCm : \n',
+        //     pk_own_peer,'\n',
+        //     pk_own_del,'\n',
+        //     pk_enc_cons,'\n',
+        //     r_cm,'\n',
+        //     fee_own,'\n',
+        //     fee_del,'\n',
+        //     h_k,'\n',
+        // )
         const mimc7 = new mimc.MiMC7();
 
+        console.log(
+            "\n\npk_own_peer : ",  pk_own_peer, '\n',
+            'r_cm : ' ,         r_cm ,'\n',
+            'fee_own : ' ,      fee_own ,'\n',
+            'h_k : ' ,          h_k ,'\n',
+            'pk_enc_cons : ' ,  pk_enc_cons ,'\n',
+        )  
         const cm_own = mimc7.hash(pk_own_peer, r_cm, fee_own, h_k, pk_enc_cons);
         console.log(
             'mimc7 cm_own Test : \n',

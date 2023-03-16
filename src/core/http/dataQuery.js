@@ -26,7 +26,7 @@ export async function getDataInfoFromHct(h_ct) {
 export async function genTradeQuery(h_ct, tx_hash) {
     try {
         const res = await httpCli.get(`data/gentrade/${h_ct}/${tx_hash}`)
-        console.log(res)
+        // console.log(res)
         return res;
     } catch (error) {
         console.log(error);

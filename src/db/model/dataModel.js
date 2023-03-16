@@ -28,6 +28,16 @@ export class dataModel extends SQLiteManager {
                     name : 'data',
                     dataType : 'string',
                     isNotNull : true
+                },
+                {
+                    name : 'key',
+                    dataType : 'string',
+                    isNotNull : false
+                },
+                {
+                    name : 'h_ct',
+                    dataType : 'string',
+                    isNotNull : false
                 }
             ])
             this.tableFlag = true;
@@ -37,9 +47,29 @@ export class dataModel extends SQLiteManager {
         }
     }
 
-    async insertData(data) {
+    async insertData(
+        data,
+        owner,
+        title,
+        key=undefined,
+        h_ct=undefined
+    ) {
         try {
-            await super.insert('data', data);
+            let dataJson = {
+                'data' : data,
+                'owner': owner,
+                'title': title
+            }
+
+            if(key){
+                _.set(dataJson, 'key', key)
+            }
+
+            if(h_ct){
+                _.set(dataJson, 'h_ct', h_ct)
+            }
+
+            await super.insert('data', dataJson);
         } catch (error) {
             console.log(error);
             throw error;
