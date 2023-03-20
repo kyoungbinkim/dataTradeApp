@@ -39,6 +39,11 @@ export class dataModel extends SQLiteManager {
                     name : 'h_ct',
                     dataType : 'string',
                     isNotNull : false
+                },
+                {
+                    name : 'usrIdx',
+                    dataType : 'integer',
+                    isNotNull : false
                 }
             ])
             this.tableFlag = true;
@@ -52,8 +57,9 @@ export class dataModel extends SQLiteManager {
         data,
         owner,
         title,
-        key=undefined,
-        h_ct=undefined
+        key = undefined,
+        h_ct= undefined,
+        idx = undefined
     ) {
         try {
             let dataJson = {
@@ -63,12 +69,17 @@ export class dataModel extends SQLiteManager {
             }
 
             if(key){
-                _.set(dataJson, 'key', key)
+                _.set(dataJson, 'key', key);
             }
 
             if(h_ct){
-                _.set(dataJson, 'h_ct', h_ct)
+                _.set(dataJson, 'h_ct', h_ct);
             }
+
+            if(idx){
+                _.set(dataJson, 'usrIdx', idx);
+            }
+            
             console.log(dataJson);
             const ret = await super.insert('data', dataJson);
             console.log(ret)

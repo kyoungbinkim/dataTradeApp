@@ -8,6 +8,7 @@ import InitJoinHome from './init.join.home';
 import InitJoinNickname from './init.join.nickname';
 import InitJoinAddr from './init.join.addr';
 import InitJoinPsswrd from './init.join.psswrd';
+import TestPage from './test';
 import { DataViewComp } from '../elements/dataView';
 
 const Stack = createStackNavigator();
@@ -28,6 +29,10 @@ const StackInitNav = () => {
                 <Stack.Screen name='Join/join' component={InitJoinPsswrd} />
                 <Stack.Screen name="Login" component={InitLogin}/>
                 <Stack.Screen name="dataView" component={DataViewComp}/>
+                <Stack.Screen name="test" component={TestPage} 
+                    options={{
+                        headerShown: false,
+                }}/>
             </Stack.Group>
         </Stack.Navigator>
     )

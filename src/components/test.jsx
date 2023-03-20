@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text, Icon, Button } from 'react-native-elements';
 import CustomChipButton from '../elements/chipButton';
@@ -6,24 +6,18 @@ import CustomChipButton from '../elements/chipButton';
 import loginService from '../core/service/login';
 import testSnark,{ testOrder, initLibSnark } from '../core/snark/test';
 import { DBtest, dropTableTEST, createTableTEST } from '../db/test';
-import { getUserKeys } from '../core/http/serverQuery';
-import { selectServerPublicKey } from '../store/serverInfoSlice';
 import { useSelector } from 'react-redux';
 import DBInstance, { getMyInfo, getServerKey } from '../db';
 import JoinService from '../core/service/join';
 import { randomFieldElement } from '../core/utils/math';
 import { orderData } from '../core/service/order';
 import { getDataInfoFromHct } from '../core/http/dataQuery';
-import InputBox from '../elements/inputBox';
-import JoinSlice from '../store/joinSlice';
-import InitLogin from './init.login';
 
 
-const InitWalletPage = ({ navigation }) => {
+const TestPage = ({ navigation }) => {
 
     const {serverPublicKey} = useSelector(state => state.server)
-    const [psswrd ,setPsswrd] = useState('');
-    
+
     useLayoutEffect(() => {
         navigation.setOptions({
             headerTitle: ''
@@ -31,35 +25,35 @@ const InitWalletPage = ({ navigation }) => {
     }, [navigation])
 
     return (
-        <>
         <View style={[styles.container, styles.content]}>
-            <InitLogin/>
+            
+            <Text style={styles.text}>not Login</Text>
             <CustomChipButton
                 title={'Join'}
                 containerStyle={[styles.containerBt]}
                 onPress={() => { navigation.navigate('Join/home') }}
             />
-            {/* <CustomChipButton
+            <CustomChipButton
                 title={'Login'}
                 containerStyle={[styles.containerBt]}
                 onPress={() => {navigation.navigate('Login') }}
-            /> */}
-            {/* <CustomChipButton 
+            />
+            <CustomChipButton 
                 title={'init Snark'}
                 containerStyle={[styles.containerBt]}
                 onPress={async () => {
                     await initLibSnark();
                 }}
-            /> */}
-            {/* <CustomChipButton
+            />
+            <CustomChipButton
                 title={'snarkTest'}
                 containerStyle={[styles.containerBt]}
                 onPress={async () => {
                     await testSnark();
                     await testOrder();
                 }}
-            /> */}
-            {/* <CustomChipButton
+            />
+            <CustomChipButton
                 title={'DB Test'}
                 containerStyle={[styles.containerBt]}
                 onPress={async () => {
@@ -67,22 +61,22 @@ const InitWalletPage = ({ navigation }) => {
                     // await createTableTEST();
                     await DBtest();
                 }}
-            /> */}
-            {/* <CustomChipButton
+            />
+            <CustomChipButton
                 title={'drop DB'}
                 containerStyle={[styles.containerBt]}
                 onPress={async () => {
                     await dropTableTEST();
                 }}
-            /> */}
-            {/* <CustomChipButton
+            />
+            <CustomChipButton
                 title={'create DB'}
                 containerStyle={[styles.containerBt]}
                 onPress={async () => {
                     await createTableTEST();
                 }}
-            /> */}
-            {/* <CustomChipButton 
+            />
+            <CustomChipButton 
                 title={'get Data From DB'}
                 containerStyle={styles.containerBt}
                 onPress = {async () => {
@@ -94,8 +88,8 @@ const InitWalletPage = ({ navigation }) => {
                     }
                     
                 }}
-            /> */}
-            {/* <CustomChipButton
+            />
+            <CustomChipButton
                 title={'get key TEST'}
                 containerStyle={styles.containerBt}
                 onPress= {async () => {
@@ -103,8 +97,8 @@ const InitWalletPage = ({ navigation }) => {
                     console.log('Server  : ', await getServerKey());
                     console.log('myInfo  : ', await getMyInfo());
                 }}
-            /> */}
-            {/* <CustomChipButton 
+            />
+            <CustomChipButton 
                 title={'Join Login Service TEST'}
                 containerStyle={styles.containerBt}
                 onPress = {async () => {
@@ -120,8 +114,8 @@ const InitWalletPage = ({ navigation }) => {
                     );
                     await loginService(pw)
                 }}
-            /> */}
-            {/* <CustomChipButton 
+            />
+            <CustomChipButton 
                 title={'Order Service TEST'}
                 containerStyle={styles.containerBt}
                 onPress = {async () => {
@@ -133,9 +127,9 @@ const InitWalletPage = ({ navigation }) => {
                     }
                     
                 }}
-            /> */}
+            />
 
-            {/* <CustomChipButton
+            <CustomChipButton
                 title={'data View Test'}
                 containerStyle={styles.containerBt}
                 onPress={async () => {
@@ -154,17 +148,9 @@ const InitWalletPage = ({ navigation }) => {
                     }
 
                 }}
-            /> */}
+            />
 
         </View>
-        <CustomChipButton
-            title = {'test page'}
-            containerStyle={[styles.containerBt, {width:'100%'}]}
-            onPress={() => {
-                navigation.navigate('test')
-            }}
-        />
-        </>
     )
 }
 
@@ -185,11 +171,11 @@ const styles = StyleSheet.create({
     containerBt :{
         alignItems: 'center',
         height: 45,
-        width: '72%',
+        width: '75%',
         padding: 5,
         margintop: 4,
         textAlign: 'center',
     }
 })
 
-export default InitWalletPage;
+export default TestPage;

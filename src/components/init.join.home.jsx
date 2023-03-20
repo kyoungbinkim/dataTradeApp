@@ -109,9 +109,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         flex: .4,
-        borderWidth: 5,
-        borderRadius: 20,
-        borderColor: '#554BED'
+        // borderWidth: 5,
+        // borderRadius: 20,
+        // borderColor: 'black'
     },
     input: {
         height: 40,

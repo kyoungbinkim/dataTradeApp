@@ -1,8 +1,6 @@
 /* global BigInt */
 
 import _ from 'lodash'
-import types from '../../utils/types'
-import mimc from '../../crypto/mimc'
 
 import { hexStrToDec } from '../../utils/types'
 import Encryption, { sCT } from '../../crypto/encryption'

@@ -21,7 +21,6 @@ import { getDataListQuery } from '../core/http/dataQuery';
 const InitLogin = ({ navigation }) => {
     const dispatch = useDispatch();
 
-    const [localSk, setLocalSk] = useState('');
     const [psswrd, setPsswrd] = useState('');
     return (
         <View style={styles.container}>
@@ -60,8 +59,8 @@ const InitLogin = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        backgroundColor: 'white',
-        flex: 1,
+        // backgroundColor: 'white',
+        flex: 0.15,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 10,

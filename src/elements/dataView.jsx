@@ -95,7 +95,7 @@ export function DataViewNavi({route, navigation}) {
     owner={owner}
     data={data}
     btTitle = {btTitle}
-    onPress={()=>{navigation.navigate(navi??'data/home')}}
+    onPress={()=>{onPress;navigation.navigate(navi??'data/home')}}
   />)
 }
 
