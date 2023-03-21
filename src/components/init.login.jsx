@@ -10,11 +10,8 @@ import CustomChipButton from '../elements/chipButton';
 import InputBox from '../elements/inputBox';
 
 import loginService from '../core/service/login';
-import PublicKey from '../core/snark/struct/pk';
-import UserKey from '../core/wallet/keyStruct';
-import { loginQuery } from '../core/http/loginQuery';
 import { setLogin, setUsrIdx } from '../store/initSlice';
-import { setData, setKey, setPublicKey } from '../store/infoSlice';
+import { setData } from '../store/infoSlice';
 import { getDataListQuery } from '../core/http/dataQuery';
 
 
@@ -36,7 +33,10 @@ const InitLogin = ({ navigation }) => {
                 title={'login'}
                 containerStyle={styles.containerBt}
                 onPress={ async () => {
-
+                    if(psswrd === ''){
+                        Alert.alert('비밀번호를 입력하시오.')
+                        return;
+                    }
                     const [flag, info] = await loginService(psswrd);
 
                     console.log(info, typeof info,Number.parseInt( _.get(info, 'idx') ));
@@ -59,7 +59,6 @@ const InitLogin = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        // backgroundColor: 'white',
         flex: 0.15,
         justifyContent: 'center',
         alignItems: 'center',

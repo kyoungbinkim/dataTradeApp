@@ -1,6 +1,5 @@
 import Web3Interface from "./web3interface.js";
-import Web3 from "web3";
-import Config, { contractsBuildPath, fileStorePath } from "../utils/config";
+import Config from "../utils/config";
 import _ from 'lodash'
 import ContractJson from './abi'
 

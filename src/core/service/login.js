@@ -61,5 +61,3 @@ export const loginService = async (password) => {
 }
 
 export default loginService;
-
-// 24c24032d20890e2dda138dcaff4fbdb2fd0e6e3d154d3907cfb39cb5837ac4

@@ -1,19 +1,15 @@
 import _ from 'lodash';
 import React, { useEffect, useState } from 'react';
-import { Text, Button } from 'react-native-elements';
 import { 
-    View,
-    Platform, 
     SafeAreaView, 
     StatusBar,
-    StyleSheet,
 } from 'react-native';
+import '@ethersproject/shims';
 import { NavigationContainer } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import StackInitNav from './components/init.navi';
 import StackPageNavi from './components/page.navi';
-import PublicKey from './core/snark/struct/pk';
 import { getServerKeys } from './core/http/serverQuery';
 import DBInstance, { createTable, dropTable } from './db/index';
 import { setInitDB, setInitServer } from './store/initSlice';

@@ -4,7 +4,6 @@ import {
     View, Modal, Pressable, TextInput, Alert,
     StyleSheet,
 } from 'react-native';
-
 import CustomChipButton from '../elements/chipButton';
 import InputBox from '../elements/inputBox';
 import joinQuery from '../core/http/joinQuery';

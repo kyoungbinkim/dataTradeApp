@@ -36,7 +36,6 @@ export const initTradeContract = async () => {
     //     isInit = false;
     //     return;
     // }
-    
 }
 
 export const getTradeContract = () => {

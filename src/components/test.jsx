@@ -2,7 +2,6 @@ import React, { useLayoutEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text, Icon, Button } from 'react-native-elements';
 import CustomChipButton from '../elements/chipButton';
-// import SQLite from 'react-native-sqlite-storage'
 import loginService from '../core/service/login';
 import testSnark,{ testOrder, initLibSnark } from '../core/snark/test';
 import { DBtest, dropTableTEST, createTableTEST } from '../db/test';

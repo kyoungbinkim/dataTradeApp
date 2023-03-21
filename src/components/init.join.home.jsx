@@ -9,11 +9,11 @@ import Clipboard from '@react-native-clipboard/clipboard';
 import CustomChipButton from '../elements/chipButton';
 import UserKey from '../core/wallet/keyStruct.js';
 
-const InitJoinHome = ({route, navigation }) => {
+const InitJoinHome = ({ route, navigation }) => {
     const [keyGenVis, setKeyGenVis] = useState(false);
-    const [sk_own , setSk_own] = useState('');
+    const [sk_own, setSk_own] = useState('');
 
-    const KeyGenModal = () => {  
+    const KeyGenModal = () => {
         Clipboard.setString(sk_own);
         return (
             <Modal
@@ -21,23 +21,23 @@ const InitJoinHome = ({route, navigation }) => {
                 transparent={false}
                 visible={keyGenVis}
                 style={styles.container}
-            >   
-                <View style={[styles.container, ]}>
+            >
+                <View style={[styles.container,]}>
                     <View style={styles.box}>
                         <View>
                             <Text style={styles.strongText}>반드시 기억하세요.</Text>
                             <Text style={styles.text}>
-                                sk_own : {'0x'+sk_own}
-                            </Text> 
-                        </View> 
+                                sk_own : {'0x' + sk_own}
+                            </Text>
+                        </View>
                         <CustomChipButton
-                            onPress={ () => {
+                            onPress={() => {
                                 setKeyGenVis(false)
-                                navigation.navigate('Join/nickname',{
-                                    sk_own : sk_own
+                                navigation.navigate('Join/nickname', {
+                                    sk_own: sk_own
                                 })
                             }}
-                            containerStyle = {[styles.containerBt]}
+                            containerStyle={[styles.containerBt]}
                             title={'close'}
                         />
                     </View>
@@ -48,18 +48,18 @@ const InitJoinHome = ({route, navigation }) => {
 
     return (
         <View style={[styles.container]}>
-                <CustomChipButton
-                    title={'key generation 🔑'}
-                    containerStyle={[styles.containerBt]}
-                    onPress={() => {
-                        setSk_own(UserKey.keyGen()['skOwn'])
-                        
-                        // Alert.alert('비밀키가 클립보드에 복사되었습니다.');
-                        setKeyGenVis(true);
-                }}/>
-                {<KeyGenModal/>}
+            <CustomChipButton
+                title={'key generation 🔑'}
+                containerStyle={[styles.containerBt]}
+                onPress={() => {
+                    setSk_own(UserKey.keyGen()['skOwn'])
+
+                    // Alert.alert('비밀키가 클립보드에 복사되었습니다.');
+                    setKeyGenVis(true);
+                }} />
+            {<KeyGenModal />}
         </View>
-        
+
     )
 }
 
@@ -89,12 +89,12 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 15,
         marginBottom: 25,
-        margin : 5
+        margin: 5
     },
     strongText: {
         fontSize: 25,
         fontStyle: 'italic',
-        margin : 5,
+        margin: 5,
         marginBottom: 5,
         fontWeight: 'bold'
     },

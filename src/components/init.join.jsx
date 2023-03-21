@@ -6,7 +6,6 @@ import {
     StyleSheet
 } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
-
 import CustomChipButton from '../elements/chipButton';
 import mimc from '../core/crypto/mimc';
 import UserKey from '../core/wallet/keyStruct';
@@ -16,8 +15,6 @@ import types from '../core/utils/types';
 const InitJoinJoin = ({ route, navigation }) => {
 
     const { sk_own, nickname } = route.params;
-    // const sk_own = useSelector(selectSkOwn);
-    // const nickname = useSelector(selectNickname);
 
     useEffect(()=>{},[])
 

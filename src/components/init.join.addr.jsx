@@ -1,22 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { Text, Button, Icon, Input } from 'react-native-elements';
+import React, { useState } from 'react';
+import { Text } from 'react-native-elements';
 import {
-    View, Modal, Pressable, TextInput, Alert, Image,
+    View, Alert,
     StyleSheet,
-    Platform,
-    SafeAreaView,
-    StatusBar,
-    ActivityIndicator
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import 'react-native-get-random-values'
+import 'react-native-get-random-values';
 import '@ethersproject/shims';
 import { ethers } from 'ethers';
-
 import CustomChipButton from '../elements/chipButton';
 import InputBox from '../elements/inputBox';
-import {  setAddr } from '../store/joinSlice';
-
+import { setAddr } from '../store/joinSlice';
 import joinQuery from '../core/http/joinQuery.js';
 
 const InitJoinAddr = ({ navigation }) => {
@@ -42,7 +36,6 @@ const InitJoinAddr = ({ navigation }) => {
             {
                 uploadModalVis ?
                     <>  
-                        <Text>0xE55b103af6CfB0FFE3Eda18a836399819a089Ae1</Text>
                         <InputBox
                             inputLabel={'EOA 주소 업로드'}
                             inputPlaceHolder={'EOA 주소를 입력하시오.'}

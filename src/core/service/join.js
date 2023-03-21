@@ -46,28 +46,7 @@ export const JoinService = async (sk_own, nickname, password) => {
     } catch (error) {
         console.log(error);
         return [false, undefined];
-    }
-    
-
-    // const [check, info] = await loginQuery(sk_own);
-
-    // if (check == false) {
-    //     return false;
-    // }
-
-    // const usrkey = UserKey.recoverFromUserSk(sk_own);
-
-    // await DBInstance.myInfoDB.init(
-    //     _.get(info, 'nickname'),
-    //     sk_own,
-    //     usrkey.skEnc,
-    //     usrkey.pk.pkOwn,
-    //     usrkey.pk.pkEnc,
-    //     usrkey.getLoginTk(),
-    //     password
-    // )
-    
-    
+    }    
 }
 
 export default JoinService;

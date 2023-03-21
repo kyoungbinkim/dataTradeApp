@@ -1,18 +1,13 @@
 import _ from 'lodash'
 import React, { useEffect, useState } from 'react';
-import { Text, Button , Icon, Input} from 'react-native-elements';
 import { 
     View, Modal, Pressable,TextInput,Alert,
     StyleSheet
 } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
-
 import CustomChipButton from '../elements/chipButton';
 import InputBox from '../elements/inputBox';
-import mimc from '../core/crypto/mimc';
-import UserKey from '../core/wallet/keyStruct';
-import httpCli from '../core/http/http';
-import types from '../core/utils/types';
+
 import JoinService from '../core/service/join';
 
 const InitJoinPsswrd = ({ route, navigation }) => {
@@ -22,36 +17,6 @@ const InitJoinPsswrd = ({ route, navigation }) => {
     const [psswrdCheck, setPsswrdCheck] = useState('');
 
     useEffect(() => {}, [])
-
-    function join(){
-        const mimc7 = new mimc.MiMC7();
-        
-        const keys = JSON.parse(UserKey.recoverFromUserSk(sk_own).toJson());
-        
-        const JoinQuery = {
-            loginTk : mimc7.hash(_.get(keys,'skOwn'), types.asciiToHex('login')),
-            nickname: nickname,
-            skEnc   : _.get(keys, 'skOwn'),
-            pkOwn   : _.get(keys, 'pkOwn'),
-            pkEnc   : _.get(keys, 'pkEnc'),
-            addr    : _.get(keys, 'ena'),
-            // EOA     : address,
-        }
-
-        httpCli.post("/usr/join/join", JoinQuery).then(res =>{
-            console.log(res.data);
-            if(res.data["flag"] === false){
-              Alert.alert("이미가입되었거나 올바르지 않은 주소입니다.");
-              return;
-            }
-            Alert.alert("sucess Join"+ 
-                "\n\nblockHash : " + res.data['receipt']['blockHash']+
-                "\ntxHash : " + res.data['receipt']['transactionHash'] +'\n');
-            Clipboard.setString(sk_own);
-            navigation.navigate(`Init`);
-        });
-
-    }
 
     return(
         <View style={[styles.container]}>

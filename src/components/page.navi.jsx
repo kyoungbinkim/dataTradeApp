@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { createStackNavigator } from '@react-navigation/stack'
 
 import PageHome from './page.home';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';

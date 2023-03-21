@@ -22,8 +22,6 @@ const MyDataHome = ({route, navigation}) => {
                 // Prevent default behavior
                 // e.preventDefault();
                 
-                // Do something manually
-                // ...
                 DBInstance.dataDB.db.transaction((tx) => {
                     try {
                         tx.executeSql(`SELECT * FROM data WHERE usrIdx = '${usrIdx}'`, [],
@@ -39,25 +37,9 @@ const MyDataHome = ({route, navigation}) => {
                         console.log(error)
                     }
                 })
-                console.log('focus');
             })
 
-            // DBInstance.dataDB.db.transaction((tx) => {
-            //     try {
-            //         tx.executeSql(`SELECT * FROM data WHERE usrIdx = '${usrIdx}'`, [],
-            //             (tx, results) => {
-            //                 let tmp = []
-            //                 for (let i=0; i<results.rows.length; i++){
-            //                     tmp.push(results.rows.item(i))
-            //                 }
-            //                 console.log(tmp)
-            //                 setDataList(tmp)
-            //             })
-            //     } catch (error) {
-            //         console.log(error)
-            //     }
-            // })
-            // return unsubscribe;
+            return unsubscribe;
         }
         , [navigation]);
 
