@@ -59,7 +59,7 @@ const MyInfo = ({route, navigation}) => {
                 normalText={'eth sk'}
                 secureText={_.get(usrInfo, 'eoa_sk')}
             />
-            
+
         </View>
     )
 }
